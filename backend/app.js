@@ -38,5 +38,6 @@ app.listen(port, () => console.log(`Server Running on port: http://localhost:${p
 app.use(bodyParser.json());
 
 // project routes
-app.use('/Project', projectRoutes);
-app.use('/Kandydaci', projectRoutes);
+app.use('/', projectRoutes); //localhost:8080/project // http://localhost:8080/kandydaci
+// app.use("/Project", projectRoutes); http://localhost:8080/project/kandydaci, http://localhost:8080/project/project
+// app.use("/Kandydaci", projectRoutes); http://localhost:8080/kandydaci/project, http://localhost:8080/kandydaci/kandydaci
