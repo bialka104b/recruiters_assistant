@@ -4,6 +4,8 @@ const fs = require("fs");
 const process = require("process");
 const app = express();
 const port = process.env.PORT || 8080;
+const accessData = require('./haslo.json');
+const hasloDB = JSON.parse(JSON.stringify(accessData));
 
 const projectRoutes = require("./routes/projectRoutes");
 const bodyParser = require("body-parser");
@@ -11,8 +13,7 @@ const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 
 // Connection String to MongoDB
-const dbURI =
-    "mongodb+srv://marta:Sikorskiego-45@cluster0.w2bha.mongodb.net/rekruter?retryWrites=true&w=majority";
+const dbURI = `mongodb+srv://marta:${hasloDB.haslo}@cluster0.w2bha.mongodb.net/rekruter?retryWrites=true&w=majority`;
 
 mongoose
     .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
