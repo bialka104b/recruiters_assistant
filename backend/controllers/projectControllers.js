@@ -12,7 +12,8 @@ const project_get_all = (req, res) => {
 		});
 };
 
-const project_get_byID = (req, res) => {
+const project_get_byID = ( req, res ) => {
+	console.log(Project);
 	const id = req.params.id;
 	Project.findById(id)
 		.then((result) => {
@@ -24,7 +25,7 @@ const project_get_byID = (req, res) => {
 };
 
 const kandydaci_get_all = (req, res) => {
-    console.log(Kandydaci);
+	console.log( Kandydaci );
 	Kandydaci.find()
 		.sort({ createdAt: -1 })
 		.then((result) => {
