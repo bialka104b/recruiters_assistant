@@ -3,12 +3,12 @@ const Schema = mongoose.Schema;
 
 const KandydaciSchema = new Schema(
     {
-        prj_name: { type: String, required: true },
-        prj_stat: { type: String, required: true },
-        prj_manager: { type: String, required: true },
-        prj_cost: { type: Number, required: true },
-        // Imie: { type: String, required: true },
-        // Nazwisko: { type: String, required: true },
+        prj_name: { type: String },
+        prj_stat: { type: String},
+        prj_manager: { type: String },
+        prj_cost: { type: Number },
+        Imie: { type: String, required: true },
+        Nazwisko: { type: String, required: true },
         // Email: { type: String, required: true },
         // Telefon: { type: Number, required: true },
         // Miejscowosc: { type: Number, required: true },
