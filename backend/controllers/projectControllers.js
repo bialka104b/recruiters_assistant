@@ -45,12 +45,12 @@ const kandydaci_create = (req, res) => {
 			Imie: 'GGG',
 			Nazwisko: 'MMM'
 		})
-		// .then((result) => {
-		// 	res.status(201).send(result);
-		// })
-		// .catch((err) => {
-		// 	res.status(400).send(err);
-		// });
+		.then((result) => {
+			res.status(201).send(result);
+		})
+		.catch((err) => {
+			res.status(400).send(err);
+		});
 };
 
 const kandydaci_delete = (req, res) => {
