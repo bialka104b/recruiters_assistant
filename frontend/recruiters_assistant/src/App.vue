@@ -5,8 +5,6 @@ import { RouterLink, RouterView } from "vue-router";
 <script lang="ts">
 import Axios from "axios";
 import FormRecruterVue from "./components/FormRecruter.vue";
-// import { mongo } from "mongoose";
-// import http from "../http-common";
 export default {
 	data() {
 		return {

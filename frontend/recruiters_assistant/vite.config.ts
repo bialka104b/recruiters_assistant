@@ -13,7 +13,7 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
         // this is required for the SCSS modules
 				"@src": path.resolve(__dirname, "./src"),
-				"@assets": path.resolve(__dirname, "./assets"),
+		  "@assets": path.resolve(__dirname, "./assets"),
     }
-  }
+	}
 })
