@@ -1,12 +1,17 @@
 @import "./variables";
-@import "_kolumna1.scss";
+// @import "_kolumna1.scss";
 @import "_button.scss";
 @import "_mixin.scss";
 @import "_webkitScrollbar";
 @import "_input.scss";
 @import "_persons.scss";
 @import "_labelTableCell";
-@import "_inputHoverFocus.scss";
+// @import "_inputHoverFocus.scss";
+
+// @use 'vuetify/styles' with (
+//   $color-pack: false,
+//   $utilities: false,
+// );
 
 // reset css
 * {
