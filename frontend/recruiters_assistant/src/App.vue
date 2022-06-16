@@ -9,6 +9,7 @@ export default {
 	data() {
 		return {
 			data: "",
+			checked: true,
 		};
 	},
 	components: {
@@ -79,6 +80,8 @@ export default {
 				<RouterLink to="/about">About</RouterLink>
 			</nav>
 		</div> -->
+		<van-checkbox v-model="checked">Checkbox {{checked}}</van-checkbox>
+		<van-checkbox v-model="checked" checked-color="#ee0a24">Checkbox</van-checkbox>
 	</header>
 	<FormRecruterVue :msg="'gg'"></FormRecruterVue>
 	<RouterView />
