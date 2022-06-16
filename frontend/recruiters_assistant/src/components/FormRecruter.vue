@@ -1,7 +1,57 @@
-<script setup lang="ts">
-defineProps<{
-	msg: string;
-}>();
+<script lang="ts">
+import { createApp, type defineComponent } from 'vue';
+
+export default {
+	name: "FormRecruter",
+	props: {
+		msg: String,
+	},
+	data() { 
+		return {
+			adobe: true,
+			agile: true,
+			android: true,
+			angular: false,
+			aws: true,
+			bash: true,
+			bootstrap: true,
+			css: true,
+			csharp: true,
+			cpp: true,
+			c: true,
+			delphi: true,
+			html: true,
+			ios: true,
+			java: true,
+			javascript: true,
+			jQuery: true,
+			kanban: true,
+			less:true,
+			linux:true,
+			dotNet:true,
+			node:true,
+			oracle:true,
+			perl:true,
+			photoshop:true,
+			php:true,
+			powershell:true,
+			python: true,
+			react: true,
+			ruby: true,
+			sass: true,
+			scala: true,
+			scrum: true,
+			spring: true,
+			sql: true,
+			scss: true,
+			swift: true,
+			vue: true,
+			vb: true,
+			windows: true,
+		}
+	},
+	
+}
 </script>
 
 <template>
@@ -21,7 +71,7 @@ defineProps<{
 					<form class="row" action="/wyslijimie" method="get">
 						<div class="col-sm-6 dane_osobowe">
 							<div class="opakowanie">
-								<div class="block">
+								<div class="block mb-1">
 									<div class="w-50">
 										<label for="nazwisko">Wybierz nazwisko:</label>
 									</div>
@@ -31,7 +81,7 @@ defineProps<{
 								</div>
 							</div>
 							<div class="opakowanie">
-								<div class="block">
+								<div class="block mb-1">
 									<div class="w-50">
 										<label for="specjalnosc">Wybierz Specjalność:</label>
 									</div>
@@ -41,7 +91,7 @@ defineProps<{
 								</div>
 							</div>
 							<div class="opakowanie">
-								<div class="block">
+								<div class="block mb-1">
 									<div class="w-50">
 										<label for="miejscowosc">Wybierz miejscowość:</label>
 									</div>
@@ -53,7 +103,7 @@ defineProps<{
 						</div>
 
 						<div class="col-sm-6 jezyki">
-							<div class="block">
+							<div class="block mb-1">
 								<div class="w-50">
 									<input
 										type="checkbox"
@@ -73,7 +123,7 @@ defineProps<{
 									/>
 								</div>
 							</div>
-							<div class="block">
+							<div class="block mb-1">
 								<div class="w-50">
 									<input
 										type="checkbox"
@@ -93,7 +143,7 @@ defineProps<{
 									/>
 								</div>
 							</div>
-							<div class="block">
+							<div class="block mb-1">
 								<div class="w-50">
 									<label
 										for="pozostalejezyki"
@@ -116,20 +166,12 @@ defineProps<{
 							<div class="row">
 								<div class="col-sm-2">
 									<!-- {{!-- AAAAA --}} -->
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="adobe"
-												name="adobe"
-												value="adobe"
-												defaultChecked="false"
-											/>
-											<label for="adobe">Adobe</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="adobe" label="Adobe" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="agile" label="Agile" checked-icon="playlist_add_check" />
+										<!-- <div class="w-50">
 											<input
 												type="checkbox"
 												id="agile"
@@ -138,474 +180,132 @@ defineProps<{
 												defaultChecked="false"
 											/>
 											<label for="agile">Agile</label>
-										</div>
+										</div> -->
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="android"
-												name="android"
-												value="android"
-												defaultChecked="false"
-											/>
-											<label for="android">Android</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="android" label="Android" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="angular"
-												name="angular"
-												value="angular"
-												defaultChecked="false"
-											/>
-											<label for="angular">Angular</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="angular" label="Angular" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="aws"
-												name="aws"
-												value="aws"
-												defaultChecked="false"
-											/>
-											<label for="aws">AWS</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="aws" label="AWS" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="bash"
-												name="bash"
-												value="bash"
-												defaultChecked="false"
-											/>
-											<label for="bash">Bash</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="bash" label="Bash" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="bootstrap"
-												name="bootstrap"
-												value="bootstrap"
-												defaultChecked="false"
-											/>
-											<label for="bootstrap">Bootstrap</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="bootstrap" label="Bootstrap" checked-icon="playlist_add_check" />
 									</div>
 								</div>
 								<div class="col-sm-2">
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="css"
-												name="css"
-												value="css"
-												defaultChecked="false"
-											/>
-											<label for="css">CSS</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="css" label="CSS" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="csharp"
-												name="csharp"
-												value="c#"
-												defaultChecked="false"
-											/>
-											<label for="csharp">C#</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="csharp" label="C#" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="cpp"
-												name="cpp"
-												value="C\/++"
-												defaultChecked="false"
-											/>
-											<label for="cpp">C++</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="cpp" label="C++" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="c"
-												name="c"
-												value="C"
-												defaultChecked="false"
-											/>
-											<label for="c">C</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="c" label="C" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="delphi"
-												name="delphi"
-												value="delphi"
-												defaultChecked="false"
-											/>
-											<label for="delphi">Delphi</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="delphi" label="Delphi" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="html"
-												name="html"
-												value="html"
-												defaultChecked="false"
-											/>
-											<label for="html">HTML</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="html" label="HTML" checked-icon="playlist_add_check" />
 									</div>
 								</div>
 								<div class="col-sm-2">
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="ios"
-												name="ios"
-												value="ios"
-												defaultChecked="false"
-											/>
-											<label for="ios">IOS</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="ios" label="IOS" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="java"
-												name="java"
-												value="java,"
-												defaultChecked="false"
-											/>
-											<label for="java">JAVA</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="java" label="JAVA" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="javascript"
-												name="javascript"
-												value="javascript"
-												defaultChecked="false"
-											/>
-											<label for="javascript">JavaScript</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="javascript" label="JavaScript" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="jQuery"
-												name="jQuery"
-												value="jQuery"
-												defaultChecked="false"
-											/>
-											<label for="jQuery">jQuery</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="jQuery" label="jQuery" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="kanban"
-												name="kanban"
-												value="kanban"
-												defaultChecked="false"
-											/>
-											<label for="kanban">Kanban</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="kanban" label="Kanban" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="less"
-												name="less"
-												value="less"
-												defaultChecked="false"
-											/>
-											<label for="less">Less</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="less" label="Less" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="linux"
-												name="linux"
-												value="linux"
-												defaultChecked="false"
-											/>
-											<label for="linux">Linux</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="linux" label="Linux" checked-icon="playlist_add_check" />
 									</div>
 								</div>
 								<div class="col-sm-2">
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="dotNet"
-												name="dotNet"
-												value=".net"
-												defaultChecked="false"
-											/>
-											<label for="dotNet">.NET</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="dotNet" label=".NET" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="node"
-												name="node"
-												value="node"
-												defaultChecked="false"
-											/>
-											<label for="node">Node.js</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="node" label="Node.js" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="oracle"
-												name="oracle"
-												value="oracle"
-												defaultChecked="false"
-											/>
-											<label for="oracle">Oracle</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="oracle" label="Oracle" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="perl"
-												name="perl"
-												value="perl"
-												defaultChecked="false"
-											/>
-											<label for="perl">Perl</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="perl" label="Perl" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="photoshop"
-												name="photoshop"
-												value="photoshop"
-												defaultChecked="false"
-											/>
-											<label for="photoshop">Photoshop</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="photoshop" label="Photoshop" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="php"
-												name="php"
-												value="php"
-												defaultChecked="false"
-											/>
-											<label for="php">PHP</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="php" label="PHP" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="powershell"
-												name="powershell"
-												value="powershell"
-												defaultChecked="false"
-											/>
-											<label for="powershell">Powershell</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="powershell" label="Powershell" checked-icon="playlist_add_check" />
 									</div>
 								</div>
 								<div class="col-sm-2">
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="python"
-												name="python"
-												value="python"
-												defaultChecked="false"
-											/>
-											<label for="python">Python</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="python" label="Python" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="react"
-												name="react"
-												value="react"
-												defaultChecked="false"
-											/>
-											<label for="react">React</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="react" label="React" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="ruby"
-												name="ruby"
-												value="ruby"
-												defaultChecked="false"
-											/>
-											<label for="ruby">Ruby</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="ruby" label="Ruby" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="sass"
-												name="sass"
-												value="sass"
-												defaultChecked="false"
-											/>
-											<label for="sass">Sass</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="sass" label="Sass" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="scala"
-												name="scala"
-												value="scala"
-												defaultChecked="false"
-											/>
-											<label for="scala">Scala</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="scala" label="Scala" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="scrum"
-												name="scrum"
-												value="scrum"
-												defaultChecked="false"
-											/>
-											<label for="scrum">Scrum</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="scrum" label="Scrum" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="spring"
-												name="spring"
-												value="spring"
-												defaultChecked="false"
-											/>
-											<label for="spring">Spring</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="spring" label="Spring" checked-icon="playlist_add_check" />
 									</div>
 								</div>
 
 								<div class="col-sm-2">
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="sql"
-												name="sql"
-												value="sql"
-												defaultChecked="false"
-											/>
-											<label for="sql">SQL/MySQL</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="sql" label="SQL/MySQL" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="scss"
-												name="scss"
-												value="scss"
-												defaultChecked="false"
-											/>
-											<label for="scss">Scss</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="scss" label="Scss" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="swift"
-												name="swift"
-												value="swift"
-												defaultChecked="false"
-											/>
-											<label for="swift">Swift</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="swift" label="Swift" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="vue"
-												name="vue"
-												value="vue"
-												defaultChecked="false"
-											/>
-											<label for="vue">Vue</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="vue" label="Vue" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="vb"
-												name="vb"
-												value="vb"
-												defaultChecked="false"
-											/>
-											<label for="vb">VB/VBA</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="vb" label="VB/VBA" checked-icon="playlist_add_check" />
 									</div>
-									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="windows"
-												name="windows"
-												value="windows"
-												defaultChecked="false"
-											/>
-											<label for="windows">Windows</label>
-										</div>
+									<div class="block mb-1">
+										<va-checkbox color="#9c27b0" v-model="windows" label="Windows" checked-icon="playlist_add_check" />
 									</div>
 								</div>
 							</div>

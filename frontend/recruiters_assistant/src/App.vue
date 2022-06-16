@@ -34,7 +34,6 @@
       label="four"
     />
   </div>
-  <va-checkbox color="#9c27b0" v-model="value" label="Custom color with icon" checked-icon="loop" />
 	</header>
 	<FormRecruterVue :msg="'gg'"></FormRecruterVue>
 	<RouterView />
@@ -49,7 +48,6 @@ export default defineComponent({
 		return {
 			data: "",
 			selection: ['one', 'four'],
-			value: true
 		};
 	},
 	components: {
