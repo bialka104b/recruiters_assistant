@@ -22,10 +22,12 @@ defineProps<{
 						<div class="col-sm-6 dane_osobowe">
 							<div class="opakowanie">
 								<div class="block">
+
 									<div class="w-50">
 										<label for="nazwisko">Wybierz nazwisko:</label>
 									</div>
 									<div class="w-50">
+										
 										<input type="text" name="nazwisko" id="nazwisko" />
 									</div>
 								</div>
@@ -117,51 +119,63 @@ defineProps<{
 								<div class="col-sm-2">
 									<!-- {{!-- AAAAA --}} -->
 									<div class="block">
-										<div class="w-50">
-											<input
+										<div class="w-100 bigcheck">
+											<!-- <span class="bigcheck"> -->
+												<label class="bigcheck">
+													<input type="checkbox" class="bigcheck" id="adobe"
+													name="adobe"
+													value="adobe"
+													defaultChecked="false"
+													/>
+													<span class="bigcheck-target"></span>
+													Adobe
+												</label>
+											<!-- </span> -->
+											<!-- <input
 												type="checkbox"
 												id="adobe"
 												name="adobe"
 												value="adobe"
 												defaultChecked="false"
 											/>
-											<label for="adobe">Adobe</label>
+											<label for="adobe">Adobe</label> -->
 										</div>
 									</div>
 									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="agile"
+										<div class="w-100 bigcheck">
+											<label class="bigcheck">
+												<input type="checkbox" class="bigcheck" id="agile"
 												name="agile"
 												value="agile"
 												defaultChecked="false"
-											/>
-											<label for="agile">Agile</label>
+												/>
+												<span class="bigcheck-target"></span>
+												Agile
+											</label>
 										</div>
 									</div>
 									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="android"
+										<div class="w-100 bigcheck">
+											<label class="bigcheck">
+												<input type="checkbox" class="bigcheck" id="android"
 												name="android"
 												value="android"
-												defaultChecked="false"
-											/>
-											<label for="android">Android</label>
+												/>
+												<span class="bigcheck-target"></span>
+												Android
+											</label>
 										</div>
 									</div>
 									<div class="block">
-										<div class="w-50">
-											<input
-												type="checkbox"
-												id="angular"
+										<div class="w-100 bigcheck">
+											<label class="bigcheck">
+												<input type="checkbox" class="bigcheck" id="angular"
 												name="angular"
 												value="angular"
-												defaultChecked="false"
-											/>
-											<label for="angular">Angular</label>
+												/>
+												<span class="bigcheck-target"></span>
+												Angular
+											</label>
 										</div>
 									</div>
 									<div class="block">

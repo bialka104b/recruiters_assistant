@@ -1,4 +1,4 @@
-import 'vuetify/styles' // Global CSS has to be imported
+// import 'vuetify/styles' // Global CSS has to be imported
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'

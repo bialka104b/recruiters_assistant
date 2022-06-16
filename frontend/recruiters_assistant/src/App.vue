@@ -18,20 +18,45 @@
     </v-main>
 
 	
-  <v-container
+  <!-- <v-container
     class="px-0"
     fluid
   >
-  gsgsgsgsgsg
-    <v-checkbox
+  kk -->
+      <!-- :label="`Checkbox 1: ${checkbox.toString()}`" -->
+    <!-- <v-checkbox
       v-model="checkbox"
-      :label="`Checkbox 1: ${checkbox.toString()}`"
-    ></v-checkbox>
-  </v-container>
-  </v-app>
+	  	color="primary" label="primary"
+		value="true"
+    ></v-checkbox> -->
+	<v-checkbox
+                v-model="ex4"
+                label="red"
+                color="red"
+                value="red"
+                hide-details
+				append-icon="fa fa-address-book-o"
+              ></v-checkbox>
+              <v-checkbox
+                v-model="ex4"
+                label="red darken-3"
+                color="red darken-3"
+                value="red darken-3"
+                hide-details
+              ></v-checkbox>
+  <!-- </v-container> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-  <FormRecruterVue :msg="'gg'"></FormRecruterVue>
+	<span class="bigcheck">
+		<label class="bigcheck">
+			<input type="checkbox" class="bigcheck" name="cheese" value="yes" />
+			<span class="bigcheck-target"></span>
+		</label>
+	</span>
+
+  	<FormRecruterVue :msg="'gg'"></FormRecruterVue>
 	<RouterView />
+  </v-app>
 </template>
 
 <script lang="ts">
@@ -39,12 +64,20 @@ import { defineComponent } from 'vue';
 import Axios from "axios";
 import FormRecruterVue from "./components/FormRecruter.vue";
 
+
+// import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+// import { library, dom } from "@fortawesome/fontawesome-svg-core";
+// import { fas } from "@fortawesome/free-solid-svg-icons";
+import "vuetify/dist/vuetify.min.css";
+
 export default defineComponent({
   name: 'App',
   data () {
     return {
     	 data: "",
+		 ex4: ['red', 'indigo', 'orange', 'primary', 'secondary', 'success', 'info', 'warning', 'error', 'red darken-3', 'indigo darken-3', 'orange darken-3'],
 		checkbox: true,
+		// checkbox: ["red"]
     }
 	
   },
@@ -104,4 +137,51 @@ export default defineComponent({
 </script>
 <style lang="scss">
 @import './scss/main.scss';
+
+// .v-selection-control__input::before {
+// 	opacity: 1 !important;
+// 	border-radius: 25%;
+	
+// }
+
+// .v-selection-control__wrapper {
+// 	border: 1px solid black;
+// }
+
+// .v-selection-control--disabled .v-selection-control__input > .v-icon, .v-selection-control--dirty .v-selection-control__input > .v-icon, .v-selection-control--error .v-selection-control__input > .v-icon {
+// 	background: black;
+// 	border-radius: 25%;
+// }
+
+
+span.bigcheck-target {
+  font-family: FontAwesome; /* Use an icon font for the checkbox */
+}
+
+input[type='checkbox'].bigcheck {
+  position: relative;
+  left: -999em; /* Hide the real checkbox */
+}
+
+input[type='checkbox'].bigcheck + span.bigcheck-target:after {
+  content: "\f096"; /* In fontawesome, is an open square (fa-square-o) */
+}
+
+input[type='checkbox'].bigcheck:checked + span.bigcheck-target:after {
+  content: "\f046"; /* fontawesome checked box (fa-check-square-o) */
+}
+
+/* ==== Optional - colors and padding to make it look nice === */
+.bigcheck {
+//   background-color: #2C3E50;
+  color: #D35400;
+//   font-family: sans-serif;
+  font-weight: 500;
+//   font-size: 4em; /* Set this to whatever size you want */
+}
+
+span.bigcheck {
+  display: block;
+  padding: 0.5em;
+}
 </style>

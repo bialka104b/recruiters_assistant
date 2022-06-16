@@ -9,7 +9,7 @@ import path from "path";
 export default defineConfig({
   plugins: [
     vue(),
-    vueJsx()
+    vueJsx(),
   ],
   resolve: {
     alias: {

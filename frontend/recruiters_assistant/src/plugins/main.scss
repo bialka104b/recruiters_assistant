@@ -1,0 +1,6 @@
+// @import "vuetify/dist/vuetify.min.css";
+@import 'vuetify/styles';
+@use  ' vuetify/styles '  with (
+   $color-pack : true,
+   $utilities : false,
+);
