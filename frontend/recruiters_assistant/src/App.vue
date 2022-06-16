@@ -11,9 +11,32 @@
 				<RouterLink to="/about">About</RouterLink>
 			</nav>
 		</div> -->
+		<div class="flex lg3 xs12">
+    <div class="mb-4">{{ selection }}</div>
+    <va-checkbox
+      v-model="selection"
+      array-value:string="one"
+      label="one"
+    />
+    <va-checkbox
+      v-model="selection"
+      :arrayValue:string="true"
+      label="two"
+    />
+    <va-checkbox
+      v-model="selection"
+      array-value:string="three"
+      label="three"
+    />
+    <va-checkbox
+      v-model="selection"
+      array-value:string="four"
+      label="four"
+    />
+  </div>
+  <va-checkbox color="#9c27b0" v-model="value" label="Custom color with icon" checked-icon="loop" />
 	</header>
-
-  <FormRecruterVue :msg="'gg'"></FormRecruterVue>
+	<FormRecruterVue :msg="'gg'"></FormRecruterVue>
 	<RouterView />
 </template>
 
@@ -83,48 +106,6 @@ export default defineComponent({
 	},
 });
 </script>
-
-<template>
-	<header>
-		<!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-		<div class="wrapper">
-			<HelloWorld msg="You did it!" />
-			<button @click="poscik()">kasuj</button>
-			<button @click="create()">create Menda</button>
-			<nav>
-				<RouterLink to="/">Home</RouterLink>
-				<RouterLink to="/about">About</RouterLink>
-			</nav>
-		</div> -->
-		<div class="flex lg3 xs12">
-    <div class="mb-4">{{ selection }}</div>
-    <va-checkbox
-      v-model="selection"
-      array-value:string="one"
-      label="one"
-    />
-    <va-checkbox
-      v-model="selection"
-      :arrayValue:string="true"
-      label="two"
-    />
-    <va-checkbox
-      v-model="selection"
-      array-value:string="three"
-      label="three"
-    />
-    <va-checkbox
-      v-model="selection"
-      array-value:string="four"
-      label="four"
-    />
-  </div>
-  <va-checkbox color="#9c27b0" v-model="value" label="Custom color with icon" checked-icon="loop" />
-	</header>
-	<FormRecruterVue :msg="'gg'"></FormRecruterVue>
-	<RouterView />
-</template>
 
 <style lang="scss">
 @import './scss/main.scss';
