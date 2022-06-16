@@ -16,7 +16,8 @@
 		"http": "^0.0.1-security",
 		"sass": "^1.52.2",
 		"vue": "^3.2.36",
-		"vue-router": "^4.0.15"
+		"vue-router": "^4.0.15",
+		"vuestic-ui": "^1.4.1"
 	},
 	"devDependencies": {
 		"@types/node": "^16.11.36",

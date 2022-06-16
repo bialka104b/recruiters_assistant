@@ -9,6 +9,8 @@ export default {
 	data() {
 		return {
 			data: "",
+			selection: ['one', 'four'],
+			value: true
 		};
 	},
 	components: {
@@ -79,6 +81,30 @@ export default {
 				<RouterLink to="/about">About</RouterLink>
 			</nav>
 		</div> -->
+		<div class="flex lg3 xs12">
+    <div class="mb-4">{{ selection }}</div>
+    <va-checkbox
+      v-model="selection"
+      array-value:string="one"
+      label="one"
+    />
+    <va-checkbox
+      v-model="selection"
+      :arrayValue:string="true"
+      label="two"
+    />
+    <va-checkbox
+      v-model="selection"
+      array-value:string="three"
+      label="three"
+    />
+    <va-checkbox
+      v-model="selection"
+      array-value:string="four"
+      label="four"
+    />
+  </div>
+  <va-checkbox color="#9c27b0" v-model="value" label="Custom color with icon" checked-icon="loop" />
 	</header>
 	<FormRecruterVue :msg="'gg'"></FormRecruterVue>
 	<RouterView />
@@ -86,6 +112,8 @@ export default {
 
 <style lang="scss">
 @import './scss/main.scss';
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 // @import "@/assets/base.css";
 
 // #app {
