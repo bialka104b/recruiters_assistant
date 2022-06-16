@@ -1,19 +1,11 @@
-import 'vuetify/styles' // Global CSS has to be imported
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
-import { createVuetify } from 'vuetify'
-import { loadFonts } from './plugins/webfontloader'
-import * as components from 'vuetify/components'
-import * as directives from 'vuetify/directives'
+import { createApp } from 'vue';
+import  App  from './App.vue';
+import router from './router';
+import { createVuestic } from 'vuestic-ui' // <-
+import 'vuestic-ui/dist/vuestic-ui.css' // <-
 
-const vuetify = createVuetify({
-  components,
-  directives,
-})
-loadFonts()
+const app = createApp(App)
+app.use(createVuestic()) // <-
+app.use(router);
 
-createApp(App)
-  .use(router)
-  .use(vuetify)
-  .mount('#app')
+app.mount('#app')
