@@ -9,6 +9,7 @@ export default {
 	data() {
 		return {
 			data: "",
+			val: true
 		};
 	},
 	components: {
@@ -79,6 +80,11 @@ export default {
 				<RouterLink to="/about">About</RouterLink>
 			</nav>
 		</div> -->
+		<div id="q-app" style="min-height: 100vh;">
+  <div class="q-pa-md">
+    <q-checkbox v-model="val"></q-checkbox>
+  </div>
+</div>
 	</header>
 	<FormRecruterVue :msg="'gg'"></FormRecruterVue>
 	<RouterView />
