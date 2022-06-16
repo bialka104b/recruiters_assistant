@@ -79,6 +79,11 @@ export default {
 				<RouterLink to="/about">About</RouterLink>
 			</nav>
 		</div> -->
+		<n-space item-style="display: flex;" align="center">
+			<n-checkbox type="error" size="small" label="small" />
+			<n-checkbox size="medium" label="medium" />
+			<n-checkbox size="large" label="large" />
+		</n-space>
 	</header>
 	<FormRecruterVue :msg="'gg'"></FormRecruterVue>
 	<RouterView />
