@@ -26,8 +26,23 @@ const project_get_byID = ( req, res ) => {
 };
 
 const kandydaci_get_all = (req, res) => {
-	console.log( Kandydaci );
-	Kandydaci.find()
+	// console.log( Kandydaci );
+	// console.log( req, "req.body" );
+	// Nazwisko: { $regex: "Kurczyk", $options: "i" },
+	Kandydaci
+		.find({
+			$and: [
+				{
+					// Nazwisko: { $regex: "a", $options: "i" },
+					Niemiecki: { $regex: "Niemiecki", $options: "i" },
+					Angielski: { $regex: "Angielski", $options: "i" },
+					// Imie: { $regex: "a", $options: "i" },
+					// Wiek: { $regex: "20", $options: "i" },
+					Relokacja: { $regex: "tak", $options: "i" }
+				},
+			],
+		})
+		.where({ Miejscowosc: "Rzeszów" })
 		.sort({ createdAt: -1 })
 		.then((result) => {
 			res.status(200).send(result);
