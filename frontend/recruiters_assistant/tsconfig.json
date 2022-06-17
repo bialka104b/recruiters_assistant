@@ -10,6 +10,7 @@
       ]
     }
   },
+  // "extends": "@vue/tsconfig/tsconfig.json",
 
   "references": [
     {

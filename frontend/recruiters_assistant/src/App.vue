@@ -1,16 +1,6 @@
 <template>
 <header>
-		<!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-		<div class="wrapper">
-			<HelloWorld msg="You did it!" />
-			<button @click="poscik()">kasuj</button>
-			<button @click="create()">create Menda</button>
-			<nav>
-				<RouterLink to="/">Home</RouterLink>
-				<RouterLink to="/about">About</RouterLink>
-			</nav>
-		</div> -->
+	
 		<div class="flex lg3 xs12">
     <div class="mb-4">{{ selection }}</div>
     <va-checkbox
@@ -46,7 +36,7 @@ import FormRecruterVue from "./components/FormRecruter.vue";
 export default defineComponent({
 	data() {
 		return {
-			data: "",
+			data: [],
 			selection: ['one', 'four'],
 		};
 	},
@@ -61,6 +51,7 @@ export default defineComponent({
 			Axios.get(`http://localhost:8080/kandydaci`)
 				.then((res) => {
 					console.log(res, "res udało sie get");
+					this.data = res.data;
 				})
 				.catch((err) => {
 					console.log(err, "error mmmmmmm getik");

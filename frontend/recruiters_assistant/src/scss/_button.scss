@@ -17,7 +17,7 @@
 
 @mixin buttonOnWhite {
     // margin-left:50px;
-    height: 50px;
+    // height: 50px;
     color: white;
     border-radius: 0;
     font-size: medium;
@@ -49,13 +49,14 @@
     }
 }
 
-#editUser {
+.editUser {
     
     .persons {
         form {
             button {
                 @include buttonOnWhite;
                 color: white;
+                height: 100%;
             }
         }
         
