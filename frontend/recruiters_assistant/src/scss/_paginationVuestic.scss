@@ -1,0 +1,14 @@
+.paginationBottom.va-button-group,
+.paginationTop.va-button-group {
+    border-radius: 0;
+    .va-button--round,
+    .va-button:last-of-type,
+    .va-button:first-of-type {
+        border-radius: 0;
+    }
+    .va-button {
+        padding-left: 5px!important;
+        padding-right: 5px!important;
+        border: 0!important;
+    }
+}

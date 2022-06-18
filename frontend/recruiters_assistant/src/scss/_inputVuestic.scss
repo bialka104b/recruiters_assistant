@@ -1,6 +1,6 @@
 .wrapperInput {
     .va-input-wrapper__input {
-        height: 50px;
+        height: 42px;
 
         border: 3px solid;
         border-image-slice: 1;
@@ -36,11 +36,40 @@
         border-image-slice: 1;
     }
 }
+.va-input--labeled .va-input__label {
+    top:5px !important;
+}
 .va-input__content-wrapper .va-input__content__input.inputClass {
     font-weight: bold;
     text-align: center;
     font-size: medium;
-      transform: translateY(0);
-      color: $niebieski;
+    transform: translateY(0);
+    color: $niebieski;
+}
+.va-checkbox--selected {
+
+    .va-checkbox__square {
+        background: var(--gradient) !important;
+        border-color: transparent !important;
+        border: 0 !important;
+    }
+}
+.va-checkbox__square {
+    border-radius: 0!important;
+    border-image-slice: 1!important;
+    border-image-source: var(--gradient) !important;
+    background-color: var(--gradient) !important;
+    
 }
 
+.multiselect__option--highlight {
+    background: var(--gradient) !important;
+
+}
+.multiselect__content-wrapper {
+    border: 0;
+}
+
+.multiselect__single {
+    background: transparent!important;
+}
