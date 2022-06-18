@@ -15,7 +15,7 @@ const KandydaciSchema = new Schema(
 		Wiek: { type: String, required: true },
 		// Doswiadczenie: { type: String, required: true },
 		// Wym_Finansowe: { type: String, required: true },
-		// Technologie: { type: String, required: true },
+		Technologie: { type: String, required: true },
 		// Komentarze: { type: String, required: true },
 		// Specjalnosc: { type: String, required: true },
 		// Data_kontaktu: { type: String, required: true },

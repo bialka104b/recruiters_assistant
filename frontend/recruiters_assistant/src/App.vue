@@ -1,29 +1,5 @@
 <template>
 <header>
-	
-		<div class="flex lg3 xs12">
-    <div class="mb-4">{{ selection }}</div>
-    <va-checkbox
-      v-model="selection"
-      array-value:string="one"
-      label="one"
-    />
-    <va-checkbox
-      v-model="selection"
-      :arrayValue:string="true"
-      label="two"
-    />
-    <va-checkbox
-      v-model="selection"
-      array-value:string="three"
-      label="three"
-    />
-    <va-checkbox
-      v-model="selection"
-      array-value:string="four"
-      label="four"
-    />
-  </div>
 	</header>
 	<FormRecruterVue :msg="'gg'"></FormRecruterVue>
 	<RouterView />
@@ -37,26 +13,26 @@ export default defineComponent({
 	data() {
 		return {
 			data: [],
-			selection: ['one', 'four'],
 		};
 	},
 	components: {
 		FormRecruterVue,
 	},
 	created() {
-		this.getik();
+		// this.getik();
 	},
 	methods: {
-		getik(): void {
-			Axios.get(`http://localhost:8080/kandydaci`)
-				.then((res) => {
-					console.log(res, "res udało sie get");
-					this.data = res.data;
-				})
-				.catch((err) => {
-					console.log(err, "error mmmmmmm getik");
-				});
-		},
+		// getik(): void {
+		// 	const params = { };
+		// 	Axios.get(`http://localhost:8080/kandydaci`, {params})
+		// 		.then((res) => {
+		// 			console.log(res, "res udało sie get");
+		// 			this.data = res.data;
+		// 		})
+		// 		.catch((err) => {
+		// 			console.log(err, "error mmmmmmm getik");
+		// 		});
+		// },
 		async poscik() {
 			await Axios.delete(`http://localhost:8080/kandydaci/629c79da52d0e691f62da3e2`, {
 				headers: {
@@ -95,7 +71,7 @@ export default defineComponent({
 	},
 });
 </script>
-
+<style src="vue-multiselect/dist/vue-multiselect.css"></style>
 <style lang="scss">
 @import './scss/main.scss';
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;1,700&display=swap');

@@ -27,22 +27,190 @@ const project_get_byID = ( req, res ) => {
 
 const kandydaci_get_all = (req, res) => {
 	// console.log( Kandydaci );
-	// console.log( req, "req.body" );
+	console.log( req.query, "req.body" );
 	// Nazwisko: { $regex: "Kurczyk", $options: "i" },
-	Kandydaci
-		.find({
-			$and: [
-				{
-					// Nazwisko: { $regex: "a", $options: "i" },
-					Niemiecki: { $regex: "Niemiecki", $options: "i" },
-					Angielski: { $regex: "Angielski", $options: "i" },
-					// Imie: { $regex: "a", $options: "i" },
-					// Wiek: { $regex: "20", $options: "i" },
-					Relokacja: { $regex: "tak", $options: "i" }
-				},
-			],
-		})
-		.where({ Miejscowosc: "Rzeszów" })
+	// console.log req.query.surname
+	Kandydaci.find({
+		$and: [
+			{
+				Nazwisko: { $regex: req.query.surname, $options: "i" },
+			},
+			{
+				$or: [
+					{
+						Angielski: { $regex: req.query.angielskia2, $options: "i" },
+					},
+					{
+						Angielski: { $regex: req.query.angielskib1, $options: "i" },
+					},
+					{
+						Angielski: { $regex: req.query.angielskib2, $options: "i" },
+					},
+					{
+						Angielski: { $regex: req.query.angielskic1, $options: "i" },
+					},
+					{
+						Angielski: { $regex: req.query.angielskic2, $options: "i" },
+					},
+				],
+			},
+			{
+				Angielski: { $regex: req.query.angielski, $options: "i" },
+			},
+			{
+				$or: [
+					{
+						Niemiecki: { $regex: req.query.niemieckia2, $options: "i" },
+					},
+					{
+						Niemiecki: { $regex: req.query.niemieckib1, $options: "i" },
+					},
+					{
+						Niemiecki: { $regex: req.query.niemieckib2, $options: "i" },
+					},
+					{
+						Niemiecki: { $regex: req.query.niemieckic1, $options: "i" },
+					},
+					{
+						Niemiecki: { $regex: req.query.niemieckic2, $options: "i" },
+					},
+				],
+			},
+			{
+				Niemiecki: { $regex: req.query.niemiecki, $options: "i" },
+			},
+			{
+				Pozostale_Jezyki: { $regex: req.query.pozostaleJezyki, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.adobe, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.agile, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.android, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.angular, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.aws, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.bash, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.bootstrap, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.css, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.csharp, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.cpp, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.c, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.delphi, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.html, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.ios, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.java, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.java1, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.javascript, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.jQuery, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.kanban, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.less, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.linux, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.dotNet, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.node, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.oracle, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.perl, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.photoshop, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.php, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.powershell, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.python, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.powershell, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.react, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.ruby, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.sass, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.scala, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.scrum, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.spring, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.sql, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.scss, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.swift, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.vue, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.vb, $options: "i" },
+			},
+			{
+				Technologie: { $regex: req.query.windows, $options: "i" },
+			},
+		],
+	})
+		.where({ Miejscowosc: { $regex: "", $options: "i" } })
 		.sort({ createdAt: -1 })
 		.then((result) => {
 			res.status(200).send(result);
