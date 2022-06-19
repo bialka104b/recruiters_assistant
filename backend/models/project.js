@@ -13,15 +13,15 @@ const KandydaciSchema = new Schema(
 		Niemiecki: { type: String, required: true },
 		Pozostale_Jezyki: { type: String, required: true },
 		Wiek: { type: String, required: true },
-		// Doswiadczenie: { type: String, required: true },
-		// Wym_Finansowe: { type: String, required: true },
+		Doswiadczenie: { type: String, required: true },
+		Wym_Finansowe: { type: String, required: true },
 		Technologie: { type: String, required: true },
-		// Komentarze: { type: String, required: true },
-		// Specjalnosc: { type: String, required: true },
-		// Data_kontaktu: { type: String, required: true },
-		// Status_Zainteresowany: { type: String, required: true },
-		// Rozmowa_techniczna: { type: String, required: true },
-		// Rozmowa_nietechniczna: { type: String, required: true },
+		Komentarze: { type: String, required: true },
+		Specjalnosc: { type: String, required: true },
+		Data_kontaktu: { type: String, required: true },
+		Status_Zainteresowany: { type: String, required: true },
+		Rozmowa_techniczna: { type: String, required: true },
+		Rozmowa_nietechniczna: { type: String, required: true },
 	},
 	{
 		timestamps: true,
@@ -33,8 +33,8 @@ const ProjectSchema = new Schema(
 		prj_name: { type: String, required: true },
 		prj_stat: { type: String, required: true },
 		prj_manager: { type: String, required: true },
-        prj_cost: { type: Number, required: true },
-        //tu nie mozna deklarować schema bo nam wytnie niektóre pola
+		prj_cost: { type: Number, required: true },
+		//tu nie mozna deklarować schema bo nam wytnie niektóre pola
 	},
 	{
 		timestamps: true,
@@ -42,11 +42,10 @@ const ProjectSchema = new Schema(
 	},
 );
 
-
 const Kandydaci = mongoose.model("Kandydaci", KandydaciSchema);
 const Project = mongoose.model("Project", ProjectSchema);
 
 module.exports = {
-    Project,
-    Kandydaci
+	Project,
+	Kandydaci,
 };

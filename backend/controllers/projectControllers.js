@@ -1,8 +1,8 @@
-const { Project, Kandydaci } = require("../models/project");  //to są ścieżki na stronie www
+const { Project, Kandydaci } = require("../models/project"); //to są ścieżki na stronie www
 const mongo = require("mongodb"); //import biblioteki mongo
 
 const project_get_all = (req, res) => {
-    console.log(Project);
+	console.log(Project);
 	Project.find()
 		.sort({ createdAt: -1 })
 		.then((result) => {
@@ -13,7 +13,7 @@ const project_get_all = (req, res) => {
 		});
 };
 
-const project_get_byID = ( req, res ) => {
+const project_get_byID = (req, res) => {
 	console.log(Project);
 	const id = req.params.id;
 	Project.findById(id)
@@ -26,10 +26,6 @@ const project_get_byID = ( req, res ) => {
 };
 
 const kandydaci_get_all = (req, res) => {
-	// console.log( Kandydaci );
-	console.log( req.query, "req.body" );
-	// Nazwisko: { $regex: "Kurczyk", $options: "i" },
-	// console.log req.query.surname
 	Kandydaci.find({
 		$and: [
 			{
@@ -221,13 +217,11 @@ const kandydaci_get_all = (req, res) => {
 };
 
 const kandydaci_create = (req, res) => {
-	console.log(req.body, "req0");
 	const kandydaci1 = new Kandydaci(req.body);
-	Kandydaci
-		.create({
-			Imie: 'GGG',
-			Nazwisko: 'MMM'
-		})
+	Kandydaci.create({
+		Imie: "GGG",
+		Nazwisko: "MMM",
+	})
 		.then((result) => {
 			res.status(201).send(result);
 		})
@@ -237,12 +231,22 @@ const kandydaci_create = (req, res) => {
 };
 
 const kandydaci_delete = (req, res) => {
-	console.log(req.params.id, "reques");
-	// console.log();
 	const id = req.params.id;
 	Kandydaci.deleteOne({ _id: mongo.ObjectId(id) })
 		.then((result) => {
 			res.status(200 || 204).send(result);
+		})
+		.catch((err) => {
+			res.status(400).send(err);
+		});
+};
+
+const kandydaci_update = (req, res) => {
+	const id = req.params.id;
+	Kandydaci.updateOne({ _id: mongo.ObjectId(id) }, { $set: req.body })
+		.then((result) => {
+			res.status(200 || 204).send(result);
+			console.log(result);
 		})
 		.catch((err) => {
 			res.status(400).send(err);
@@ -255,4 +259,5 @@ module.exports = {
 	project_get_byID,
 	kandydaci_create,
 	kandydaci_delete,
+	kandydaci_update,
 };
