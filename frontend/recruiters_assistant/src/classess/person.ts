@@ -1,50 +1,50 @@
 export class Person {
-	Angielski: String;
-	Data_kontaktu: String;
-	Doswiadczenie: String;
-	Email:  String;
-	Firmy_Wspolpraca:  String;
-	Imie: String;
-	Komentarze:  String;
-	Link_Do_Profilu: String;
-	Miejscowosc: String;
-	Nazwisko: String;
-	Niemiecki:  String;
-	Pozostale_Jezyki:  String;
-	Relokacja:  String;
-	Rozmowa_nietechniczna:  String;
-	Rozmowa_techniczna:  String;
-	Specjalnosc:  String;
+	Angielski: string;
+	Data_kontaktu: string;
+	Doswiadczenie: string;
+	Email:  string;
+	Firmy_Wspolpraca:  string;
+	Imie: string;
+	Komentarze:  string;
+	Link_Do_Profilu: string;
+	Miejscowosc: string;
+	Nazwisko: string;
+	Niemiecki:  string;
+	Pozostale_Jezyki:  string;
+	Relokacja:  string;
+	Rozmowa_nietechniczna:  string;
+	Rozmowa_techniczna:  string;
+	Specjalnosc:  string;
 	Status_Zainteresowany: Boolean
-	Technologie: String;
-	Telefon: String;
-	Wiek:  String;
-	Wym_Finansowe:  String;
-	_id: String;
+	Technologie: string;
+	Telefon: string;
+	Wiek:  string;
+	Wym_Finansowe:  string;
+	_id: string;
 
 	constructor(
-		_id: String = '',
-		Imie: String = '',
-		Nazwisko: String = '',
-		Angielski: String = '',
-		Niemiecki:  String = '',
-		Doswiadczenie: String = '',
-		Email:  String = '',
-		Firmy_Wspolpraca:  String = '',
-		Komentarze:  String = '',
-		Link_Do_Profilu: String = '',
-		Miejscowosc: String = '',
-		Pozostale_Jezyki:  String = '',
-		Relokacja:  String = '',
-		Rozmowa_nietechniczna:  String = '',
-		Rozmowa_techniczna:  String = '',
-		Specjalnosc:  String = '',
+		_id: string = '',
+		Imie: string = '',
+		Nazwisko: string = '',
+		Angielski: string = '',
+		Niemiecki:  string = '',
+		Doswiadczenie: string = '',
+		Email:  string = '',
+		Firmy_Wspolpraca:  string = '',
+		Komentarze:  string = '',
+		Link_Do_Profilu: string = '',
+		Miejscowosc: string = '',
+		Pozostale_Jezyki:  string = '',
+		Relokacja:  string = '',
+		Rozmowa_nietechniczna:  string = '',
+		Rozmowa_techniczna:  string = '',
+		Specjalnosc:  string = '',
 		Status_Zainteresowany: Boolean = false,
-		Technologie: String = '',
-		Telefon: String = '',
-		Wym_Finansowe:  String = '',
-		Data_kontaktu: String = '',
-		Wiek:  String = '',
+		Technologie: string = '',
+		Telefon: string = '',
+		Wym_Finansowe:  string = '',
+		Data_kontaktu: string = '',
+		Wiek:  string = '',
 	) { 
 		this.Angielski = Angielski,
 		this.Data_kontaktu = Data_kontaktu,
