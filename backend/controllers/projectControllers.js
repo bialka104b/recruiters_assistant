@@ -217,11 +217,7 @@ const kandydaci_get_all = (req, res) => {
 };
 
 const kandydaci_create = (req, res) => {
-	const kandydaci1 = new Kandydaci(req.body);
-	Kandydaci.create({
-		Imie: "GGG",
-		Nazwisko: "MMM",
-	})
+	Kandydaci.create(req.body)
 		.then((result) => {
 			res.status(201).send(result);
 		})
