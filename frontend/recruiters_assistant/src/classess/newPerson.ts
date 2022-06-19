@@ -1,5 +1,4 @@
-export class Person {
-	_id: string;
+export class NewPerson {
 	Angielski: string;
 	Data_kontaktu: string;
 	Doswiadczenie: string;
@@ -21,8 +20,8 @@ export class Person {
 	Telefon: string;
 	Wiek:  string;
 	Wym_Finansowe:  string;
+
 	constructor(
-		_id: string = '',
 		Imie: string = '',
 		Nazwisko: string = '',
 		Angielski: string = '',
@@ -45,7 +44,7 @@ export class Person {
 		Data_kontaktu: string = '',
 		Wiek:  string = '',
 	) { 
-		this.Angielski = Angielski;
+        this.Angielski = Angielski;
 		this.Data_kontaktu = Data_kontaktu;
 		this.Doswiadczenie = Doswiadczenie;
 		this.Email = Email;
@@ -66,6 +65,5 @@ export class Person {
 		this.Telefon =Telefon;
 		this.Wiek = Wiek;
 		this.Wym_Finansowe = Wym_Finansowe;
-		this._id = _id;
 	}
 }
