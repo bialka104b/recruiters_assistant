@@ -90,8 +90,14 @@ export default defineComponent({
 			a: 4,
 			valueCurrentStartItem: 0,
 			arrayTechnologies: [],
-			englishLevel: "",
-			germanLevel: "",
+			englishLevel: {
+					level: "A2+",
+					objectArr: [],
+			},
+			germanLevel: {
+					level: "A1+",
+					objectArr: [],
+			},
 			myLevel: [
 				{
 					level: "Clear",
@@ -440,10 +446,9 @@ export default defineComponent({
 											v-model="englishLevel"
 											:options="myLevel"
 											:close-on-select="true"
-											:clear-on-select="true"
+											:clear-on-select="false"
 											:hideSelected="true"
 											:show-labels="false"
-											:placeholder="'A2+'"
 											label="level"
 											track-by="level"
 											@close="selectEnglish(englishLevel)"
@@ -463,7 +468,6 @@ export default defineComponent({
 											:clear-on-select="false"
 											:hideSelected="true"
 											:show-labels="false"
-											:placeholder="'A1+'"
 											label="level"
 											track-by="level"
 											@close="selectGerman(germanLevel)"
