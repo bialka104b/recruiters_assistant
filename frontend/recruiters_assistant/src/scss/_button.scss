@@ -1,72 +1,65 @@
 @mixin button {
-    border: 5px solid;
-    margin-left:50px;
-    border-image-slice: 1;
-    background: var(--gradient) !important;
-    background-clip: text !important;
-    -webkit-background-clip: text !important;
-    border-image-source:  var(--gradient) !important; 
-    text-decoration: none;
-    transition: all 0s ease;
-    &:hover {
-        border-radius:0;
-        border: 0;
-        border-image-source:  none !important; 
-        border-image-slice: none;
-        background: var(--gradient) !important;
-        -webkit-text-fill-color: #fff !important;
-        box-shadow: #222 1px 0 10px;
-        padding-left: 5px;
-        padding-right: 5px;
-    }
+	border: 5px solid;
+	border-image-slice: 1;
+	background: var(--gradient) !important;
+	background-clip: text !important;
+	-webkit-background-clip: text !important;
+	border-image-source: var(--gradient) !important;
+	text-decoration: none;
+	transition: all 0s ease;
+	&:hover {
+		border-radius: 0;
+		border: 0;
+		border-image-source: none !important;
+		border-image-slice: none;
+		background: var(--gradient) !important;
+		-webkit-text-fill-color: #fff !important;
+		box-shadow: #222 1px 0 10px;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
 }
 
 @mixin buttonOnWhite {
-    // margin-left:50px;
-    // height: 50px;
-    color: white;
-    border-radius: 0;
-    font-size: medium;
-    background: var(--gradient) !important;
-    -webkit-background-clip: none !important;
-    box-shadow: #222 1px 0 10px;
-    transition: all 0s ease;
-    &:hover {
-        color: $niebieski;
-        border: 5px solid;
-        border-image-slice: 1;
-        background: var(--gradient) !important;
-        background-clip: text !important;
-        -webkit-background-clip: text !important;
-        border-image-source:  var(--gradient) !important; 
-        text-decoration: none;
-    }
+	color: white;
+	border-radius: 0;
+	font-size: medium;
+	background: var(--gradient) !important;
+	-webkit-background-clip: none !important;
+	box-shadow: #222 1px 0 10px;
+	transition: all 0s ease;
+	&:hover {
+		color: $niebieski;
+		border: 5px solid;
+		border-image-slice: 1;
+		background: var(--gradient) !important;
+		background-clip: text !important;
+		-webkit-background-clip: text !important;
+		border-image-source: var(--gradient) !important;
+		text-decoration: none;
+	}
 }
 
 @mixin saveButton {
-    margin-left: 0;
-    width: 100px;
-    display: inline-block;
+	margin-left: 0;
+	width: 100px;
+	display: inline-block;
 }
 
 @mixin buttonFocus {
-    &:focus {
-        outline: 0;
-    }
+	&:focus {
+		outline: 0;
+	}
 }
 
 .editUser {
-    
-    .persons {
-        form {
-            button {
-                @include buttonOnWhite;
-                color: white;
-                height: 100%;
-            }
-        }
-        
-    }
-
-
+	.persons {
+		form {
+			button {
+				@include buttonOnWhite;
+				color: white;
+				height: 100%;
+			}
+		}
+	}
 }

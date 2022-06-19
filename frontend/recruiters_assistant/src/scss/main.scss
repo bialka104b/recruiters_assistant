@@ -130,7 +130,6 @@ body {
 						height: 100%;
 					}
 					.multiselect__tags {
-
 						display: block;
 						margin: 0 auto;
 						// width: 50%;
@@ -138,24 +137,22 @@ body {
 						// text-align: center;
 						// font-size: medium;
 						outline: 0;
-	
+
 						border: 3px solid;
 						border-image-slice: 1;
 						border-image-source: var(--gradient) !important;
-	
+
 						background-color: var(--gradient) !important;
 						background-clip: text !important;
 						-webkit-background-clip: text !important;
 						-webkit-text-fill-color: $niebieski !important; //niebieski
-	
-						transition: all 0s ease !important;
 
+						transition: all 0s ease !important;
 					}
 					.multiselect--active.multiselect {
 						.multiselect__input {
 							background-color: transparent !important;
 						}
-
 					}
 					.block {
 						display: block;
@@ -280,7 +277,8 @@ body {
 			height: calc(100% - 50px);
 		}
 	}
-	form {
+	form,
+	.colForm {
 		position: relative;
 		// width: 80%;
 		// margin: 0 auto;
@@ -288,10 +286,10 @@ body {
 		button {
 			@include button;
 		}
-    // button {
-    //     @include buttonOnWhite;
-    //     @include buttonFocus;
-    //   }
+		// button {
+		//     @include buttonOnWhite;
+		//     @include buttonFocus;
+		//   }
 		button.saveButton {
 			@include saveButton;
 			@include buttonOnWhite;
@@ -327,7 +325,7 @@ body {
 		padding: 2px;
 		&:hover {
 			background-color: rgba(0, 0, 0, 0.2);
-      font-weight: bolder;
+			font-weight: bolder;
 		}
 	}
 	.persons.black {
