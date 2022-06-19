@@ -40,7 +40,9 @@ body {
 	.wiersz1 {
 		.kolumna1 {
 			margin: 0 0 100px 0;
-			form {
+			form, 
+			.createPerson, 
+			.formSearch {
 				button {
 					@include buttonOnWhite;
 					@include buttonFocus;

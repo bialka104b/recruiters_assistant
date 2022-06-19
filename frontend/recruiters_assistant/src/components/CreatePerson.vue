@@ -1,22 +1,20 @@
-<template v-if="showModalEdit">
+<template v-if="showModalCreate">
 	<div>
-		{{ run() }}
 		<va-modal
-			v-model="showModalEdit"
+			v-model="showModalCreate"
 			:no-dismiss="true"
 			:hide-default-actions="true"
 			:blur="false"
 			fullscreen
 			:fixed-layout="true"
 		>
-			<template #header v-if="person">
+			<template #header>
 				<div class="col-12 col-md-12">
-					<h3>Edytuj kandydata: {{ candidate.Imie }} {{ candidate.Nazwisko }}</h3>
+					<h3>Dodaj kandydata: {{ candidate.Imie }} {{ candidate.Nazwisko }}</h3>
 				</div>
 			</template>
-			<template #default v-if="person">
+			<template #default>
 				<va-form class="row" tag="form">
-					<!-- @submit.prevent="handleSubmit" -->
 					<div class="opakowanie col-md-6">
 						<va-input
 							class="mt-2 wrapperInput"
@@ -114,12 +112,6 @@
 						/>
 					</div>
 					<div class="opakowanie col-md-6">
-						<!-- <va-input
-							class="mt-2 wrapperInput"
-							v-model="candidate.Data_kontaktu"
-							label="Data kontaktu:"
-							input-class="inputClass"
-						/> -->
 						<va-date-input
 							class="mt-2 wrapperInput"
 							v-model="candidate.Data_kontaktu"
@@ -184,19 +176,10 @@
 							input-class="inputClass"
 						/>
 					</div>
-					<div class="opakowanie col-md-12">
-						<va-input
-							class="mt-2 wrapperInput"
-							v-model="candidate._id"
-							label="ID KANDYDATA"
-							input-class="inputClass"
-							readonly
-						/>
-					</div>
 				</va-form>
 			</template>
 			<template #footer>
-				<va-button class="mx-1" @click="editPerson(candidate)">Zapisz</va-button>
+				<va-button class="mx-1" @click="createPerson(candidate)">Zapisz</va-button>
 				<va-button class="mx-1" @click="cancel()">Cancel</va-button>
 			</template>
 		</va-modal>
@@ -206,68 +189,47 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import Axios from "axios";
-import { Person } from "../classess/person";
+import { NewPerson } from "../classess/newPerson";
 
 export default defineComponent({
-	name: "EditPerson",
-	emits: ["closeEditModal", "successEdit"],
+	name: "CreatePerson",
+	emits: ["closeCreateModal", "successCreate"],
 	props: {
-		person: Person,
-		showModalEdit: Boolean,
+		showModalCreate: Boolean,
 	},
 	data() {
 		return {
-			candidate: new Person(),
+			candidate: new NewPerson(),
 		};
 	},
 	created() {},
 	methods: {
-		run() {
-			if (this.person) {
-				this.candidate._id = this.person._id;
-				this.candidate.Imie = this.person.Imie;
-				this.candidate.Nazwisko = this.person.Nazwisko;
-				this.candidate.Angielski = this.person.Angielski;
-				this.candidate.Niemiecki = this.person.Niemiecki;
-				this.candidate.Doswiadczenie = this.person.Doswiadczenie;
-				this.candidate.Email = this.person.Email;
-				this.candidate.Firmy_Wspolpraca = this.person.Firmy_Wspolpraca;
-				this.candidate.Komentarze = this.person.Komentarze;
-				this.candidate.Link_Do_Profilu = this.person.Link_Do_Profilu;
-				this.candidate.Miejscowosc = this.person.Miejscowosc;
-				this.candidate.Pozostale_Jezyki = this.person.Pozostale_Jezyki;
-				this.candidate.Relokacja = this.person.Relokacja;
-				this.candidate.Rozmowa_nietechniczna = this.person.Rozmowa_nietechniczna;
-				this.candidate.Rozmowa_techniczna = this.person.Rozmowa_techniczna;
-				this.candidate.Specjalnosc = this.person.Specjalnosc;
-				this.candidate.Status_Zainteresowany = this.person.Status_Zainteresowany;
-				this.candidate.Technologie = this.person.Technologie;
-				this.candidate.Telefon = this.person.Telefon;
-				this.candidate.Wym_Finansowe = this.person.Wym_Finansowe;
-				this.candidate.Data_kontaktu = this.person.Data_kontaktu;
-				this.candidate.Wiek = this.person.Wiek;
-			}
-		},
-
-		editPerson(candidate: Person) {
-			this.put(candidate);
-			this.$emit("closeEditModal", this.showModalEdit);
-			this.$emit("successEdit", this.showModalEdit);
+		createPerson(candidate: NewPerson) {
+			this.create(candidate);
+			this.$emit("closeCreateModal", this.showModalCreate);
+			this.$emit("successCreate", this.showModalCreate);
+			this.candidate = new NewPerson();
 		},
 		cancel() {
-			this.$emit("closeEditModal", this.showModalEdit);
+			this.$emit("closeCreateModal", this.showModalCreate);
+			this.candidate = new NewPerson();
 		},
-		async put(person: Person) {
-			await Axios.put(`http://localhost:8080/kandydaci/${person._id}`, person, {
+
+		async create(candidate: NewPerson) {
+			const config = {
+				method: "post",
+				url: `http://localhost:8080/kandydaci/`,
 				headers: {
-					"Content-type": "application/json",
+					"Content-Type": "application/json",
 				},
-			})
+				data: candidate,
+			};
+			await Axios(config)
 				.then((res) => {
-					console.log(res, "res udało sie put");
+					console.log(res, "res udało sie create");
 				})
 				.catch((err) => {
-					console.log(err, "error put");
+					console.log(err, "error mmmmmmm create");
 				});
 		},
 	},

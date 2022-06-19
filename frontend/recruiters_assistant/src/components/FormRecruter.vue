@@ -4,6 +4,7 @@ import Axios from "axios";
 import lodash from "lodash";
 import VueMultiselect from "vue-multiselect";
 import EditPerson from "./EditPerson.vue";
+import CreatePerson from "./CreatePerson.vue";
 import DeletePerson from "./DeletePerson.vue";
 import { Person } from "../classess/person";
 
@@ -16,6 +17,7 @@ export default defineComponent({
 		VueMultiselect,
 		EditPerson,
 		DeletePerson,
+		CreatePerson,
 	},
 	data() {
 		return {
@@ -121,6 +123,7 @@ export default defineComponent({
 			showModal: false,
 			showModalDelete: false,
 			showModalEdit: false,
+			showModalCreate: false,
 			message: "jakiś tekst",
 		};
 	},
@@ -137,10 +140,16 @@ export default defineComponent({
 		closeEdit() {
 			this.showModalEdit = false;
 		},
+		closeCreate() {
+			this.showModalCreate = false;
+		},
 		successDelete() {
 			this.succes();
 		},
 		successEdit() {
+			this.succes();
+		},
+		successCreate() {
 			this.succes();
 		},
 		succes() {
@@ -154,6 +163,9 @@ export default defineComponent({
 		showPersonDelete(person: any) {
 			this.showModalDelete = !this.showModalDelete;
 			this.candidate = new Person(person._id, person.Imie, person.Nazwisko);
+		},
+		showPersonCreate() {
+			this.showModalCreate = !this.showModalCreate;
 		},
 		showPersonEdit(person: any) {
 			this.showModalEdit = !this.showModalEdit;
@@ -391,8 +403,7 @@ export default defineComponent({
 		<div class="col-12 wiersz1">
 			<div class="row kolumna1">
 				<div class="col-md-9">
-					<va-form class="row" tag="form">
-						<!-- @submit.prevent="handleSubmit" -->
+					<div class="row formSearch">
 						<div class="col-sm-6">
 							<va-input
 								class="mt-2 wrapperInput"
@@ -812,13 +823,13 @@ export default defineComponent({
 								Pobierz
 							</va-button>
 						</div>
-					</va-form>
+					</div>
 					<!-- <form class="row" action="/wyslijimie" method="get"></form> -->
 				</div>
 				<div class="col-md-3 colDodajKandydata mt-2">
-					<form class="row" action="/addedToDatabase" method="post">
-						<va-button type="submit">Dodaj kandydata</va-button>
-					</form>
+					<div class="createPerson">
+						<va-button type="submit" @click="showPersonCreate()">Dodaj kandydata</va-button>
+					</div>
 					<form
 						method="POST"
 						action="/upload-file"
@@ -1019,6 +1030,12 @@ export default defineComponent({
 			@successEdit="successEdit()"
 		>
 		</EditPerson>
+		<CreatePerson
+			:showModalCreate="showModalCreate"
+			@closeCreateModal="closeCreate()"
+			@successCreate="successCreate()"
+		>
+		</CreatePerson>
 		<DeletePerson
 			:person="candidate"
 			:showModalDelete="showModalDelete"
