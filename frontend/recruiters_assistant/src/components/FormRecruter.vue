@@ -221,7 +221,6 @@ export default defineComponent({
 				});
 		},
 		readFileAsString(e: any) {
-			console.log(e, "e");
 			const file = e.target.files[0];
 			const reader = new FileReader();
 			reader.onload = (e) => {
@@ -245,7 +244,7 @@ export default defineComponent({
 			const readyData = lines.map((line) => {
 				return match(line).reduce((acc, cur, i) => {
 					// Attempt to parse as a number; replace blank matches with `null`
-					const val = cur.length <= 0 ? null : Number(cur) || cur;
+					const val = cur.length <= 0 ? "" : Number(cur) || cur;
 					const key = heads[i] ?? `extra_${i}`;
 					return { ...acc, [key]: val };
 				}, {});
@@ -257,12 +256,12 @@ export default defineComponent({
 		importWorker() {
 			let dataUpload;
 			const headers: Array<string> = [
-				"Imie",
 				"Angielski",
 				"Data_kontaktu",
 				"Doswiadczenie",
 				"Email",
 				"Firmy_Wspolpraca",
+				"Imie",
 				"Komentarze",
 				"Link_Do_Profilu",
 				"Miejscowosc",
@@ -417,10 +416,10 @@ export default defineComponent({
 		},
 		getAllPerson(arg: any) {
 			const params = {
-				surname: this.nazwisko,
+				surname: this.nazwisko.trim(),
 				firstname: "",
-				locality: this.miejscowosc,
-				specjalization: this.specjalnosc,
+				locality: this.miejscowosc.trim(),
+				specjalization: this.specjalnosc.trim(),
 				arrayTechnologies: [],
 
 				adobe: this.adobe ? "adobe" : "",
@@ -479,10 +478,14 @@ export default defineComponent({
 				niemieckic2: this.niemieckic2,
 				pozostaleJezyki: this.pozostaleJezyki,
 			};
+			console.log(params, "params");
+			
 			Axios.get(`http://localhost:8080/kandydaci`, { params })
 				.then((res) => {
 					this.result = res.data;
 					this.displayPage(this.valueCurrentStartItem, this.valueCurrentStartItem + 9);
+					console.log(res.data, "res.data");
+					
 				})
 				.catch((err) => {
 					console.log(err, "error getAllPerson()");
@@ -1012,7 +1015,7 @@ export default defineComponent({
 						</div>
 						<div class="info mb-1 d-flex justify-content-between">
 							WYMAGANIA FINANOSOWE:
-							<p>{{ person["Wym_Finansowe"] }}</p>
+							<p>{{ person["Widelki"] }}</p>
 						</div>
 						<div class="info mb-1 d-flex justify-content-between">
 							TECHNOLOGIE:

@@ -206,7 +206,7 @@ const kandydaci_get_all = (req, res) => {
 		],
 	})
 		.where({ Miejscowosc: { $regex: "", $options: "i" } })
-		.sort({ createdAt: -1 })
+		// .sort({ createdAt: 1 })
 		.then((result) => {
 			res.status(200).send(result);
 		})
