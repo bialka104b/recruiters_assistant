@@ -7,6 +7,7 @@ router.get("/project", projectController.project_get_all); //wystawiamy pod adre
 router.get("/:id", projectController.project_get_byID);
 router.put("/kandydaci/:id", projectController.kandydaci_update);
 router.post("/:data", projectController.kandydaci_create);
+router.post("/kandydaci/:data", projectController.kandydaci_createMany);
 router.delete("/kandydaci/:id", projectController.kandydaci_delete);
 
 module.exports = router;

@@ -9,10 +9,7 @@ import DeletePerson from "./DeletePerson.vue";
 import { Person } from "../classess/person";
 
 export default defineComponent({
-	name: "FormRecruter",
-	props: {
-		msg: String,
-	},
+	name: "FormRecruterVue",
 	components: {
 		VueMultiselect,
 		EditPerson,
@@ -91,12 +88,12 @@ export default defineComponent({
 			valueCurrentStartItem: 0,
 			arrayTechnologies: [],
 			englishLevel: {
-					level: "A2+",
-					objectArr: [],
+				level: "A2+",
+				objectArr: [],
 			},
 			germanLevel: {
-					level: "A1+",
-					objectArr: [],
+				level: "A1+",
+				objectArr: [],
 			},
 			myLevel: [
 				{
@@ -131,6 +128,8 @@ export default defineComponent({
 			showModalEdit: false,
 			showModalCreate: false,
 			message: "jakiś tekst",
+
+			uploadTextFile: "",
 		};
 	},
 	async created() {
@@ -220,6 +219,96 @@ export default defineComponent({
 				.catch((err) => {
 					console.log(err, "error mmmmmmm");
 				});
+		},
+		readFileAsString(e: any) {
+			console.log(e, "e");
+			const file = e.target.files[0];
+			const reader = new FileReader();
+			reader.onload = (e) => {
+				this.uploadTextFile = String(e.target?.result);
+				return this.uploadTextFile;
+			};
+			reader.readAsText(file);
+		},
+		csvJSON(text: string, headers: any[], quoteChar = '"', delimiter = ";") {
+			const regex = new RegExp(`\\s*(${quoteChar})?(.*?)\\1\\s*(?:${delimiter}|$)`, "gs");
+
+			const match = (line: any) => {
+				const matches = [...line.matchAll(regex)].map((m) => m[2]);
+				matches.pop(); // cut off blank match at the end
+				return matches;
+			};
+
+			const lines = text.split("\n");
+			const heads = headers ?? match(lines.shift());
+
+			const readyData = lines.map((line) => {
+				return match(line).reduce((acc, cur, i) => {
+					// Attempt to parse as a number; replace blank matches with `null`
+					const val = cur.length <= 0 ? null : Number(cur) || cur;
+					const key = heads[i] ?? `extra_${i}`;
+					return { ...acc, [key]: val };
+				}, {});
+			});
+			readyData.shift();
+			readyData.pop();
+			return readyData;
+		},
+		importWorker() {
+			let dataUpload;
+			const headers: Array<string> = [
+				"Imie",
+				"Angielski",
+				"Data_kontaktu",
+				"Doswiadczenie",
+				"Email",
+				"Firmy_Wspolpraca",
+				"Komentarze",
+				"Link_Do_Profilu",
+				"Miejscowosc",
+				"Nazwisko",
+				"Niemiecki",
+				"Pozostale_Jezyki",
+				"Relokacja",
+				"Rozmowa_nietechniczna",
+				"Rozmowa_techniczna",
+				"Specjalnosc",
+				"Status_Zainteresowany",
+				"Technologie",
+				"Telefon",
+				"Widelki",
+				"Wiek",
+			];
+			if (this.basic[0]) {
+				if ((<any>this.basic[0]).name.includes(".csv")) {
+					dataUpload = this.csvJSON(this.uploadTextFile, headers);
+				}
+				if ((<any>this.basic[0]).name.includes(".json")) {
+					dataUpload = JSON.parse(this.uploadTextFile);
+				}
+			}
+			return dataUpload;
+		},
+		async createMany() {
+			const bodyData = this.importWorker();
+			const config = {
+				method: "post",
+				url: `http://localhost:8080/kandydaci/kandydaci/`,
+				headers: {
+					"Content-Type": "application/json",
+				},
+				data: bodyData,
+			};
+			await Axios(config)
+				.then((res) => {
+					console.log(res, "res udało sie createMany");
+					alert(res.statusText);
+				})
+				.catch((err) => {
+					console.log(err, "error mmmmmmm createMany");
+					alert(err.response.data.message);
+				});
+			this.basic = [];
 		},
 		selectEnglish(arg: any): void {
 			if (arg.objectArr.length == 5) {
@@ -832,7 +921,9 @@ export default defineComponent({
 				</div>
 				<div class="col-md-3 colDodajKandydata mt-2">
 					<div class="createPerson">
-						<va-button type="submit" @click="showPersonCreate()">Dodaj kandydata</va-button>
+						<va-button type="submit" @click="showPersonCreate()"
+							>Dodaj kandydata</va-button
+						>
 					</div>
 					<form
 						method="POST"
@@ -844,18 +935,10 @@ export default defineComponent({
 							v-model="basic"
 							upload-button-text="Dodaj plik.json"
 							file-types="json, csv"
+							@input="readFileAsString"
 						/>
-						<!-- <div class="fileUpload">
-							<label for="file" class="btn btn-primary">Dodaj plik .json</label>
-							<input
-								id="file"
-								type="file"
-								name="my_file_upload"
-								class="btn btn-primary"
-							/>
-						</div> -->
 						<div class="zapisz">
-							<va-button type="submit">Zapisz plik .json</va-button>
+							<va-button @click="createMany()">Zapisz plik .json</va-button>
 						</div>
 					</form>
 				</div>

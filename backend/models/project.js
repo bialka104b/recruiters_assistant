@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const KandydaciSchema = new Schema(
 	{
-		Imie: { type: String, required: true },
+		Imie: { type: String},
 		Nazwisko: { type: String, required: true },
 		Relokacja: { type: String },
 		Email: { type: String },
@@ -28,6 +28,8 @@ const KandydaciSchema = new Schema(
 		collection: "kandydaci", //tu można podawac nazwe kolekcji z której chcemy pobrać dane
 	},
 );
+
+
 const ProjectSchema = new Schema(
 	{
 		prj_name: { type: String, required: true },

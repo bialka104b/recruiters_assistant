@@ -1,6 +1,6 @@
 <template>
 	<header></header>
-	<FormRecruterVue :msg="'gg'"></FormRecruterVue>
+	<FormRecruterVue></FormRecruterVue>
 	<RouterView />
 </template>
 
@@ -18,42 +18,7 @@ export default defineComponent({
 		FormRecruterVue,
 	},
 	created() {},
-	methods: {
-		async poscik() {
-			await Axios.delete(`http://localhost:8080/kandydaci/629c79da52d0e691f62da3e2`, {
-				headers: {
-					"Content-type": "application/json",
-				},
-			})
-				.then((res) => {
-					console.log(res, "res udało sie delete");
-				})
-				.catch((err) => {
-					console.log(err, "error ");
-				});
-		},
-
-		async create() {
-			const config = {
-				method: "post",
-				url: `http://localhost:8080/kandydaci/`,
-				headers: {
-					"Content-Type": "application/json",
-				},
-				data: {
-					Nazwisko: "Menda",
-					Imie: "druga menda -",
-				},
-			};
-			await Axios(config)
-				.then((res) => {
-					console.log(res, "res udało sie create");
-				})
-				.catch((err) => {
-					console.log(err, "error mmmmmmm create");
-				});
-		},
-	},
+	methods: {},
 });
 </script>
 <style src="vue-multiselect/dist/vue-multiselect.css"></style>

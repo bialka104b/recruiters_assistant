@@ -22,6 +22,7 @@ body {
 	font-family: "Farro", sans-serif;
 	// font-family: $czcionka_releway;
 	background-image: url("./assets/images/leaves-pattern/leaves-pattern.png");
+	@include webkitScrollbarNone;
 }
 
 //.page-header
@@ -40,8 +41,8 @@ body {
 	.wiersz1 {
 		.kolumna1 {
 			margin: 0 0 100px 0;
-			form, 
-			.createPerson, 
+			form,
+			.createPerson,
 			.formSearch {
 				button {
 					@include buttonOnWhite;

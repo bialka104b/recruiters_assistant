@@ -1,6 +1,5 @@
 const { Project, Kandydaci } = require("../models/project"); //to są ścieżki na stronie www
 const mongo = require("mongodb"); //import biblioteki mongo
-
 const project_get_all = (req, res) => {
 	console.log(Project);
 	Project.find()
@@ -226,6 +225,18 @@ const kandydaci_create = (req, res) => {
 		});
 };
 
+const kandydaci_createMany = (req, res) => {
+	Kandydaci.insertMany(req.body)
+		.then((result) => {
+			res.status(200 || 204).send(result);
+			console.log(result, "wszystko ok insertMany");
+		})
+		.catch((err) => {
+			res.status(400).send(err);
+			console.log(err, "eroor insertMany");
+		});
+};
+
 const kandydaci_delete = (req, res) => {
 	const id = req.params.id;
 	Kandydaci.deleteOne({ _id: mongo.ObjectId(id) })
@@ -256,4 +267,5 @@ module.exports = {
 	kandydaci_create,
 	kandydaci_delete,
 	kandydaci_update,
+	kandydaci_createMany,
 };
