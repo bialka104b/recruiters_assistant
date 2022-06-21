@@ -2,7 +2,9 @@
 	<header></header>
 	<Header />
 	<!-- <FormRecruterVue></FormRecruterVue> -->
-	<router-view />
+	<main class="">
+		<router-view />
+	</main>
 </template>
 
 <script lang="ts">
