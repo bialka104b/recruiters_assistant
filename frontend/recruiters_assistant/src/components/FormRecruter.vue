@@ -414,7 +414,7 @@ export default defineComponent({
 		handleSubmit(e: any): void {
 			alert("-- form submit --");
 		},
-		getAllPerson(arg: any) {
+		async getAllPerson(arg: any) {
 			const params = {
 				surname: this.nazwisko.trim(),
 				firstname: "",
@@ -436,8 +436,7 @@ export default defineComponent({
 				delphi: this.delphi ? "delphi" : "",
 				html: this.html ? "html" : "",
 				ios: this.ios ? "ios" : "",
-				java: this.java ? "java," : "",
-				java1: this.java ? "java " : "",
+				java: this.java ? "java" : "",
 				javascript: this.javascript ? "javascript" : "",
 				jQuery: this.jQuery ? "jQuery" : "",
 				kanban: this.kanban ? "kanban" : "",
@@ -480,12 +479,12 @@ export default defineComponent({
 			};
 			console.log(params, "params");
 			
-			Axios.get(`http://localhost:8080/kandydaci`, { params })
+			await Axios.get(`http://localhost:8080/kandydaci`, { params })
 				.then((res) => {
 					this.result = res.data;
-					this.displayPage(this.valueCurrentStartItem, this.valueCurrentStartItem + 9);
 					console.log(res.data, "res.data");
 					
+					this.displayPage(this.valueCurrentStartItem, this.valueCurrentStartItem + 9);
 				})
 				.catch((err) => {
 					console.log(err, "error getAllPerson()");

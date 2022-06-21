@@ -25,10 +25,20 @@ const project_get_byID = (req, res) => {
 };
 
 const kandydaci_get_all = (req, res) => {
+	const myRegexC = new RegExp(/\bc(?= )|c(?=,)|c(?=\/)\b/);
+	const myRegexJava = new RegExp(/\bjava(?= )|java(?=,)\b/)
+	const regexC = req.query.c != "" ? myRegexC : "";
+	const regexJava = req.query.java != "" ? myRegexJava : "";
 	Kandydaci.find({
 		$and: [
 			{
 				Nazwisko: { $regex: req.query.surname, $options: "i" },
+			},
+			{
+				Miejscowosc: { $regex: req.query.locality, $options: "i" },
+			},
+			{
+				Specjalnosc: { $regex: req.query.specjalization, $options: "i" },
 			},
 			{
 				$or: [
@@ -108,7 +118,7 @@ const kandydaci_get_all = (req, res) => {
 				Technologie: { $regex: req.query.cpp, $options: "i" },
 			},
 			{
-				Technologie: { $regex: req.query.c, $options: "i" },
+				Technologie: { $regex: regexC, $options: "i" },
 			},
 			{
 				Technologie: { $regex: req.query.delphi, $options: "i" },
@@ -120,10 +130,7 @@ const kandydaci_get_all = (req, res) => {
 				Technologie: { $regex: req.query.ios, $options: "i" },
 			},
 			{
-				Technologie: { $regex: req.query.java, $options: "i" },
-			},
-			{
-				Technologie: { $regex: req.query.java1, $options: "i" },
+				Technologie: { $regex: regexJava, $options: "i" },
 			},
 			{
 				Technologie: { $regex: req.query.javascript, $options: "i" },
