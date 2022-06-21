@@ -1,13 +1,15 @@
 <template>
 	<header></header>
-	<FormRecruterVue></FormRecruterVue>
-	<RouterView />
+	<Header />
+	<!-- <FormRecruterVue></FormRecruterVue> -->
+	<router-view />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import Axios from "axios";
 import FormRecruterVue from "./components/FormRecruter.vue";
+import Header from "./components/Header.vue";
 export default defineComponent({
 	data() {
 		return {
@@ -15,6 +17,7 @@ export default defineComponent({
 		};
 	},
 	components: {
+		Header,
 		FormRecruterVue,
 	},
 	created() {},
