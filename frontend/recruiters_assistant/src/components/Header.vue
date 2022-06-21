@@ -4,6 +4,7 @@
 		<router-link to="/" class="nav-link font-weight-bold">Strona główna</router-link>
 		<router-link to="/tables" class="nav-link font-weight-bold">Widok tabeli</router-link>
 		<router-link to="/about" class="nav-link font-weight-bold">Widok About</router-link>
+		<router-link to="/graphs" class="nav-link font-weight-bold">Widok Wykresów</router-link>
 	</div>
 </template>
 
