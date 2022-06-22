@@ -46,42 +46,82 @@
 
 ## :dart: About ##
 
-Describe your project
+Application designed for IT recruiters. Functional requirements gathered after discussions with HR staff.
 
 ## :sparkles: Features ##
 
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
+:heavy_check_mark: Deleting a candidate
+:heavy_check_mark: Adding a candidate
+:heavy_check_mark: Searching for candidates by:
+- technologies
+- English language skills
+- German language skills
+- knowledge of other languages
+- location
+- surname
+- specialization
+
+:heavy_check_mark: upload data from .csv or .json files to database
+:heavy_check_mark: Editing a candidate
+:heavy_check_mark: Adding notes from interviews
+:heavy_check_mark: Visualizing data in charts
+
+<img src="https://github.com/bialka104b/recruiters_assistant/blob/main/haslo.jpg"></img>
 
 ## :rocket: Technologies ##
 
 The following tools were used in this project:
 
-- [Expo](https://expo.io/)
+- [Vue3](https://vuejs.org/)
 - [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
+- [Express](https://expressjs.com/en/4x/api.html#res.json)
+- [Mongo and Mongoose](https://mongoosejs.com/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [ChartJs](https://www.chartjs.org/docs/latest/)
+- [Axios](https://github.com/axios/axios)
+- [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+- [Vuestic UI](https://vuestic.dev/)
+- [Lodash](https://lodash.com/)
+- [VueMultiselect](https://vue-multiselect.js.org/)
 
 ## :white_check_mark: Requirements ##
 
 Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
 
+Then add the password.json file in the backend folder
+<img src="https://github.com/bialka104b/recruiters_assistant/blob/main/Screenshot_1.jpg" style="height:100px"></img>
+If you don't have this file, ask the project author for access or configure the project for your database.
+
+
 ## :checkered_flag: Starting ##
 
 ```bash
+STEP FIRST
 # Clone this project
 $ git clone https://github.com/bialka104b/seminarium
 
-# Access
+# Access Backed Serwer
 $ cd seminarium
+$ cd backend
 
 # Install dependencies
-$ yarn
+$ npm install
 
 # Run the project
-$ yarn start
+$ npm run dev
+
+# The server will initialize in the <http://localhost:8080>
+
+STEP SECOND
+# Access Frontend Serwer
+$ cd seminarium
+$ cd frontend/recruiters_assistant
+
+# Install dependencies
+$ npm install
+
+# Run the project
+$ npm run dev
 
 # The server will initialize in the <http://localhost:3000>
 ```
