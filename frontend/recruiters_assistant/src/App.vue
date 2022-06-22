@@ -1,8 +1,7 @@
 <template>
 	<header></header>
 	<Header />
-	<!-- <FormRecruterVue></FormRecruterVue> -->
-	<main class="">
+	<main class="pt-5">
 		<router-view />
 	</main>
 </template>

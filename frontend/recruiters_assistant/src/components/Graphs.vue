@@ -1,12 +1,5 @@
 <template>
-	Wykresy
-	<div class="row">
-		<div class="col-12 my-2" v-if="result.length > 0">
-			<!-- {{ageArrData}} -->
-			<!-- <br> {{labelsAgeArr}} -->
-			<h1 class="text-center">Wiek</h1>
-			<BarChart :chartData="ageChartData" />
-		</div>
+	<div class="row graphs">
 		<div class="col-6 my-2" v-if="result.length > 0">
 			<!-- {{technologyArrBack}} -->
 			<h1 class="text-center">Technologie Backend</h1>
@@ -22,21 +15,32 @@
 			<h1 class="text-center">Inne narzędzia i metodyki</h1>
 			<DoughnutChart :chartData="technologyOtherChartData" />
 		</div>
-		<div class="col-6 my-2" v-if="result.length > 0">
+		<div class="col-5 my-2" v-if="result.length > 0">
+			<!-- {{relocationArr}} -->
+			<h1 class="text-center">Relokacja</h1>
+			<BarChart :chartData="relocationChartData" />
+		</div>
+		<div class="col-4 my-2" v-if="result.length > 0">
 			<!-- {{specializationArr}} -->
 			<h1 class="text-center">Specjalizacja</h1>
 			<DoughnutChart :chartData="specializationChartData" />
 		</div>
-		<div class="col-6 my-2" v-if="result.length > 0">
+		<div class="col-4 my-2" v-if="result.length > 0">
 			<h1 class="text-center">Angielski</h1>
 			<!-- {{ englishArr }} -->
 			<!-- {{ englishArr2 }} -->
 			<DoughnutChart :chartData="englishChartData" />
 		</div>
-		<div class="col-6 my-2" v-if="result.length > 0">
+		<div class="col-4 my-2" v-if="result.length > 0">
 			<h1 class="text-center">Niemiecki</h1>
 			<!-- {{ germanArr }} -->
 			<DoughnutChart :chartData="germanChartData" />
+		</div>
+		<div class="col-12 my-2" v-if="result.length > 0">
+			<!-- {{ageArrData}} -->
+			<!-- <br> {{labelsAgeArr}} -->
+			<h1 class="text-center">Wiek</h1>
+			<BarChart :chartData="ageChartData" />
 		</div>
 	</div>
 </template>
@@ -59,7 +63,6 @@ export default defineComponent({
 	data() {
 		return {
 			result: [],
-			//[A1, A2, B1, B2, C1, C2, nieUmie]
 			germanArr: [0, 0, 0, 0, 0, 0, 0],
 			germanArr2: [0, 0, 0, 0, 0, 0, 0],
 			englishArr: [0, 0, 0, 0, 0, 0, 0],
@@ -71,10 +74,14 @@ export default defineComponent({
 			wiekArr: [],
 			labelsAgeArr: [],
 			ageArrData: [],
+			relocationArr: [],
+			labelsRelocationArr: [],
+			relocationArrData: [],
 
 			chartData: {},
 			germanChartData: {},
 			englishChartData: {},
+			relocationChartData: {},
 			specializationChartData: {},
 			technologyChartData: {},
 			technologyBackChartData: {},
@@ -90,13 +97,27 @@ export default defineComponent({
 		this.technologyChartData = this.returnChartDataTechnology();
 		this.technologyBackChartData = this.returnChartDataTechnologyBack();
 		this.technologyOtherChartData = this.returnChartDataTechnologyOther();
-		// this.ageChartData = this.returnChartDataAge();
 	},
 
 	methods: {
+		returnChartDataRelocation() {
+			return {
+				labels: JSON.parse(JSON.stringify(this.labelsRelocationArr)),
+				datasets: [
+					{
+						label: "Ilość osób",
+						backgroundColor: [
+							"rgba(255, 205, 86, 0.9)",
+							"rgba(54, 162, 235, 0.9)",
+							"rgba(153, 102, 255, 0.9)",
+							"rgba(201, 203, 207, 0.9)",
+						],
+						data: this.relocationArrData,
+					},
+				],
+			};
+		},
 		returnChartDataAge() {
-			console.log("returnChartDataAge");
-
 			return {
 				labels: JSON.parse(JSON.stringify(this.labelsAgeArr)),
 				datasets: [
@@ -111,7 +132,6 @@ export default defineComponent({
 							"rgba(153, 102, 255, 0.9)",
 							"rgba(201, 203, 207, 0.9)",
 						],
-						// data:[ 40, 1, 4, 6, 16, 31, 35, 34, 38, 46, 45, 40, 38, 27, 21, 24, 20, 17, 28, 22, 24, 5, 10, 12, 16, 5, 1, 3, 5, 3, 3, 2, 3, 1, 1, 1, 2, 4 ]
 						data: this.ageArrData,
 					},
 				],
@@ -133,20 +153,20 @@ export default defineComponent({
 				datasets: [
 					{
 						backgroundColor: [
-							"#41B883",
-							"#00D8FF",
-							"#DD1B16",
-							"#00B945",
-							"#9004A8",
-							"#DCF900",
-							"#FF4100",
-							"#1509E6",
-							"#FB0023",
-							"#3AF200",
-							"#FFC300",
-							"#E900AF",
-							"#00DEDE",
-							"#00DFCF",
+							"#41b883e6",
+							"#00D8FFe6",
+							"#DD1B16e6",
+							"#00B945e6",
+							"#9004A8e6",
+							"#DCF900e6",
+							"#FF4100e6",
+							"#1509E6e6",
+							"#FB0023e6",
+							"#3AF200e6",
+							"#FFC300e6",
+							"#E900AFe6",
+							"#00DEDEe6",
+							"#00DFCFe6",
 						],
 						data: this.technologyArrOther,
 					},
@@ -176,20 +196,20 @@ export default defineComponent({
 				datasets: [
 					{
 						backgroundColor: [
-							"#41B883",
-							"#00D8FF",
-							"#DD1B16",
-							"#00B945",
-							"#9004A8",
-							"#DCF900",
-							"#FF4100",
-							"#1509E6",
-							"#FB0023",
-							"#3AF200",
-							"#FFC300",
-							"#E900AF",
-							"#00DEDE",
-							"#00DFCF",
+							"#41B883e6",
+							"#00D8FFe6",
+							"#DD1B16e6",
+							"#00B945e6",
+							"#9004A8e6",
+							"#DCF900e6",
+							"#FF4100e6",
+							"#1509E6e6",
+							"#FB0023e6",
+							"#3AF200e6",
+							"#FFC300e6",
+							"#E900AFe6",
+							"#00DEDEe6",
+							"#00DFCFe6",
 						],
 						data: this.technologyArrBack,
 					},
@@ -216,20 +236,20 @@ export default defineComponent({
 				datasets: [
 					{
 						backgroundColor: [
-							"#41B883",
-							"#00D8FF",
-							"#DD1B16",
-							"#00B945",
-							"#9004A8",
-							"#DCF900",
-							"#FF4100",
-							"#1509E6",
-							"#FB0023",
-							"#3AF200",
-							"#FFC300",
-							"#E900AF",
-							"#00DEDE",
-							"#00DFCF",
+							"#41B883e6",
+							"#00D8FFe6",
+							"#DD1B16e6",
+							"#00B945e6",
+							"#9004A8e6",
+							"#DCF900e6",
+							"#FF4100e6",
+							"#1509E6e6",
+							"#FB0023e6",
+							"#3AF200e6",
+							"#FFC300e6",
+							"#E900AFe6",
+							"#00DEDEe6",
+							"#00DFCFe6",
 						],
 						data: this.technologyArr,
 					},
@@ -241,7 +261,13 @@ export default defineComponent({
 				labels: ["specjalność", "Tester", "Frontend", "Backend", "Inne"],
 				datasets: [
 					{
-						backgroundColor: ["#00B945", "#9004A8", "#DCF900", "#DAD4DC", "#DD1B16"],
+						backgroundColor: [
+							"#00B945e6",
+							"#9004A8e6",
+							"#DCF900e6",
+							"#DAD4DCe6",
+							"#DD1B16e6",
+						],
 						data: this.specializationArr,
 					},
 				],
@@ -253,25 +279,25 @@ export default defineComponent({
 				datasets: [
 					{
 						backgroundColor: [
-							"#41B883",
-							"#00D8FF",
-							"#DD1B16",
-							"#00B945",
-							"#9004A8",
-							"#DCF900",
-							"#DAD4DC",
+							"#41B883e6",
+							"#00D8FFe6",
+							"#DD1B16e6",
+							"#00B945e6",
+							"#9004A8e6",
+							"#DCF900e6",
+							"#DAD4DCe6",
 						],
 						data: this.germanArr2,
 					},
 					{
 						backgroundColor: [
-							"#41B883",
-							"#00D8FF",
-							"#DD1B16",
-							"#00B945",
-							"#9004A8",
-							"#DCF900",
-							"#DAD4DC",
+							"#41B883e6",
+							"#00D8FFe6",
+							"#DD1B16e6",
+							"#00B945e6",
+							"#9004A8e6",
+							"#DCF900e6",
+							"#DAD4DCe6",
 						],
 						data: this.germanArr,
 					},
@@ -309,27 +335,39 @@ export default defineComponent({
 				],
 			};
 		},
+		relokacjaValue(string: string): string {
+			if (string == "-" || string == "") {
+				return "nie";
+			}
+			return string;
+		},
+		sprawdzRelokacje(result: []) {
+			result.forEach((relocation: Person) => {
+				(<Array<string>>this.relocationArr).push(
+					this.relokacjaValue(relocation.Relokacja.toLowerCase().trim()),
+				);
+			});
+			const objectRelocation = lodash.countBy(this.relocationArr);
+			(<Array<string>>this.labelsRelocationArr) = lodash.keys(objectRelocation);
+			(<Array<number>>this.relocationArrData) = lodash.values(objectRelocation);
+			this.relocationChartData = this.returnChartDataRelocation();
+		},
 		sprawdzWiek(result: []) {
 			result.forEach((age: Person) => {
 				(<Array<number>>this.wiekArr).push(Number(age.Wiek));
 			});
 			const objectAge = lodash.countBy(this.wiekArr);
-			console.log(objectAge);
-			//_.countBy([5, 5, 5, 2, 2, 2, 2, 2, 9, 4])
-			//wynik => Object {2: 5, 4: 1, 5: 3, 9: 1}
 			const key = lodash.keys(objectAge);
 			const value = lodash.values(objectAge);
 
-			(<Array<string>>this.labelsAgeArr) = lodash.keys(objectAge);
-			(<Array<number>>this.ageArrData) = lodash.values(objectAge);
-			console.log(this.ageArrData);
+			(<Array<string>>this.labelsAgeArr) = key;
+			(<Array<number>>this.ageArrData) = value;
 			(<string>this.labelsAgeArr[0]) = "nie podano";
 			(<string>this.labelsAgeArr[this.labelsAgeArr.length - 1]) = "nie podano";
 
 			this.ageChartData = this.returnChartDataAge();
 		},
 		sprawdzInneNarzedzia(result: []) {
-			//agile,  aws, bash, linux,powershell, kanban, scrum, vb, windows
 			result.forEach((technology: any, index: number) => {
 				const text = technology.Technologie.toLowerCase().trim();
 				const myRegexC = new RegExp(/\bc(?= )|c(?=,)|c(?=\/)\b/);
@@ -364,12 +402,6 @@ export default defineComponent({
 			});
 		},
 		sprawdzTechnologieBack(result: []) {
-			//android, aws, bash, c#, c++,
-			//c, delphi, ios, java, linux,
-			//.net, node, oracle, perl,
-			//php, powershell, python, ruby, scala,
-			//spring,
-			//android, c#, c++, c, delphi, ios, java, .net, node, oracle, perl,php, python, ruby, scala,spring,
 			result.forEach((technology: any, index: number) => {
 				const text = technology.Technologie.toLowerCase().trim();
 				const myRegexC = new RegExp(/\bc(?= )|c(?=,)|c(?=\/)\b/);
@@ -425,13 +457,9 @@ export default defineComponent({
 			});
 		},
 		sprawdzTechnologieFront(result: []) {
-			//Adobe, Angular, Bootstrap, Css, Html,
-			//Javascript, jQuery, Less, Photoshop, React,
-			//Sass, Scss, Vue
 			result.forEach((technology: any, index: number) => {
 				const text = technology.Technologie.toLowerCase().trim();
 				const myRegexC = new RegExp(/\bcss(?= )|css(?=,)|css(?=\/)\b/);
-				const myRegexJava = new RegExp(/\bjava(?= )|java(?=,)\b/);
 				if (text.includes("adobe")) {
 					this.technologyArr[0] = this.technologyArr[0] + 1;
 				}
@@ -561,6 +589,7 @@ export default defineComponent({
 					this.sprawdzTechnologieBack(res.data);
 					this.sprawdzInneNarzedzia(res.data);
 					this.sprawdzWiek(res.data);
+					this.sprawdzRelokacje(res.data);
 				})
 				.catch((err) => {
 					console.log(err, "error getAllPerson()");
@@ -570,3 +599,9 @@ export default defineComponent({
 	},
 });
 </script>
+
+<style lang="scss">
+.graphs {
+	margin: 50px 0 0 0;
+}
+</style>

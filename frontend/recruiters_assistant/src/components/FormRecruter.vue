@@ -478,12 +478,12 @@ export default defineComponent({
 				pozostaleJezyki: this.pozostaleJezyki,
 			};
 			console.log(params, "params");
-			
+
 			await Axios.get(`http://localhost:8080/kandydaci`, { params })
 				.then((res) => {
 					this.result = res.data;
 					console.log(res.data, "res.data");
-					
+
 					this.displayPage(this.valueCurrentStartItem, this.valueCurrentStartItem + 9);
 				})
 				.catch((err) => {
@@ -497,9 +497,9 @@ export default defineComponent({
 
 <template>
 	<div class="nameColumnResult row formRecruter" id="formRecruter">
-		<div class="col-12 wiersz1">
+		<div class="col-12 wiersz1 p-0 p-lg-3">
 			<div class="row kolumna1">
-				<div class="col-md-9">
+				<div class="col-12 col-md-9 p-0 px-lg-3">
 					<div class="row formSearch">
 						<div class="col-sm-6">
 							<va-input
@@ -528,11 +528,11 @@ export default defineComponent({
 						<div class="col-sm-6">
 							<div class="jezyki">
 								<div class="block my-2 d-flex d-flex justify-content-between">
-									<div class="">
+									<div class="englishCheck">
 										<input type="checkbox" id="angielski" v-model="angielski" />
 										<label for="angielski">Angielski</label>
 									</div>
-									<div class="w-50">
+									<div class="w-50 pl-2">
 										<VueMultiselect
 											v-model="englishLevel"
 											:options="myLevel"
@@ -547,11 +547,11 @@ export default defineComponent({
 									</div>
 								</div>
 								<div class="block mb-2 d-flex d-flex justify-content-between">
-									<div class="">
+									<div class="englishCheck">
 										<input type="checkbox" id="niemiecki" v-model="niemiecki" />
 										<label for="niemiecki">Niemiecki</label>
 									</div>
-									<div class="w-50">
+									<div class="w-50 pl-2">
 										<VueMultiselect
 											v-model="germanLevel"
 											:options="myLevel"
@@ -579,12 +579,13 @@ export default defineComponent({
 
 						<div class="col-sm-12 technologie mt-3">
 							<div class="row">
-								<div class="col-sm-2">
+								<div class="col-4 col-md-2 p-0">
 									<div class="block mb-1">
 										<va-checkbox
 											color="#9c27b0"
 											v-model="adobe"
 											label="Adobe"
+											title="Adobe"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -593,6 +594,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="agile"
 											label="Agile"
+											title="Agile"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -601,6 +603,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="android"
 											label="Android"
+											title="Android"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -609,6 +612,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="angular"
 											label="Angular"
+											title="Angular"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -617,6 +621,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="aws"
 											label="AWS"
+											title="AWS"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -625,6 +630,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="bash"
 											label="Bash"
+											title="Bash"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -633,16 +639,18 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="bootstrap"
 											label="Bootstrap"
+											title="Bootstrap"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
 								</div>
-								<div class="col-sm-2">
+								<div class="col-4 col-md-2 p-0">
 									<div class="block mb-1">
 										<va-checkbox
 											color="#9c27b0"
 											v-model="css"
 											label="CSS"
+											title="CSS"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -651,6 +659,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="csharp"
 											label="C#"
+											title="C#"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -659,6 +668,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="cpp"
 											label="C++"
+											title="C++"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -667,6 +677,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="c"
 											label="C"
+											title="C"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -675,6 +686,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="delphi"
 											label="Delphi"
+											title="Delphi"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -683,24 +695,27 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="html"
 											label="HTML"
+											title="HTML"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
-								</div>
-								<div class="col-sm-2">
 									<div class="block mb-1">
 										<va-checkbox
 											color="#9c27b0"
 											v-model="ios"
 											label="IOS"
+											title="IOS"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
+								</div>
+								<div class="col-4 col-md-2 p-0">
 									<div class="block mb-1">
 										<va-checkbox
 											color="#9c27b0"
 											v-model="java"
 											label="JAVA"
+											title="JAVA"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -709,6 +724,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="javascript"
 											label="JavaScript"
+											title="JavaScript"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -717,6 +733,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="jQuery"
 											label="jQuery"
+											title="jQuery"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -725,6 +742,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="kanban"
 											label="Kanban"
+											title="Kanban"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -733,6 +751,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="less"
 											label="Less"
+											title="Less"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -741,24 +760,27 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="linux"
 											label="Linux"
+											title="Linux"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
-								</div>
-								<div class="col-sm-2">
 									<div class="block mb-1">
 										<va-checkbox
 											color="#9c27b0"
 											v-model="dotNet"
 											label=".NET"
+											title=".NET"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
+								</div>
+								<div class="col-4 col-md-2 p-0">
 									<div class="block mb-1">
 										<va-checkbox
 											color="#9c27b0"
 											v-model="node"
 											label="Node.js"
+											title="Node.js"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -767,6 +789,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="oracle"
 											label="Oracle"
+											title="Oracle"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -775,6 +798,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="perl"
 											label="Perl"
+											title="Perl"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -783,6 +807,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="photoshop"
 											label="Photoshop"
+											title="Photoshop"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -791,6 +816,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="php"
 											label="PHP"
+											title="PHP"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -799,16 +825,18 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="powershell"
 											label="Powershell"
+											title="Powershell"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
 								</div>
-								<div class="col-sm-2">
+								<div class="col-4 col-md-2 p-0">
 									<div class="block mb-1">
 										<va-checkbox
 											color="#9c27b0"
 											v-model="python"
 											label="Python"
+											title="Python"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -817,6 +845,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="react"
 											label="React"
+											title="React"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -825,6 +854,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="ruby"
 											label="Ruby"
+											title="Ruby"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -833,6 +863,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="sass"
 											label="Sass"
+											title="Sass"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -841,6 +872,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="scala"
 											label="Scala"
+											title="Scala"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -849,6 +881,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="scrum"
 											label="Scrum"
+											title="Scrum"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -857,17 +890,19 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="spring"
 											label="Spring"
+											title="Spring"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
 								</div>
 
-								<div class="col-sm-2">
+								<div class="col-4 col-md-2 p-0">
 									<div class="block mb-1">
 										<va-checkbox
 											color="#9c27b0"
 											v-model="sql"
 											label="SQL/MySQL"
+											title="SQL/MySQL"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -876,6 +911,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="scss"
 											label="Scss"
+											title="Scss"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -884,6 +920,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="swift"
 											label="Swift"
+											title="Swift"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -892,6 +929,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="vue"
 											label="Vue"
+											title="Vue"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -900,6 +938,7 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="vb"
 											label="VB/VBA"
+											title="VB/VBA"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
@@ -908,46 +947,48 @@ export default defineComponent({
 											color="#9c27b0"
 											v-model="windows"
 											label="Windows"
+											title="Windows"
 											checked-icon="playlist_add_check"
 										/>
 									</div>
 								</div>
 							</div>
 
-							<va-button type="submit" class="mt-2" @click="getAllPerson('')">
+							<!-- <va-button type="submit" class="mt-2" @click="getAllPerson('')">
 								Pobierz
-							</va-button>
+							</va-button> -->
 						</div>
 					</div>
 					<!-- <form class="row" action="/wyslijimie" method="get"></form> -->
 				</div>
-				<div class="col-md-3 colDodajKandydata mt-2">
+				<div class="col-12 col-md-3 colDodajKandydata mt-2">
 					<div class="createPerson">
 						<va-button type="submit" @click="showPersonCreate()"
 							>Dodaj kandydata</va-button
 						>
 					</div>
-					<form
-						method="POST"
-						action="/upload-file"
-						enctype="multipart/form-data"
-						class="upload"
-					>
+					<div class="upload createPerson">
 						<va-file-upload
 							v-model="basic"
-							upload-button-text="Dodaj plik.json"
+							upload-button-text="Dodaj plik"
 							file-types="json, csv"
 							@input="readFileAsString"
 						/>
+
 						<div class="zapisz">
-							<va-button @click="createMany()">Zapisz plik .json</va-button>
+							<va-button @click="createMany()">Zapisz dane</va-button>
 						</div>
-					</form>
+						<div class="zapisz">
+							<va-button type="submit" class="mt-2" @click="getAllPerson('')">
+								Pobierz dane
+							</va-button>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="row resultPersons" v-show="result.length > 0">
 				<div class="my-3 d-flex justify-content-center">
-					<va-pagination
+					<!-- <va-pagination
 						:visible-pages="7"
 						v-model="valueCurrentStartItem"
 						:total="result.length"
@@ -960,6 +1001,21 @@ export default defineComponent({
 						:hide-on-single-page="true"
 						size="small"
 						class="paginationTop"
+					/> -->
+					<va-pagination
+						:visible-pages="7"
+						v-model="valueCurrentStartItem"
+						:total="result.length"
+						boundary-numbers
+						:page-size="9"
+						@update:model-value="
+							displayPage(valueCurrentStartItem - 1, valueCurrentStartItem + 8)
+						"
+						:hide-on-single-page="true"
+						direction-icon-left="keyboard_double_arrow_left"
+						direction-icon-right="keyboard_double_arrow_right"
+						size="small"
+						class="paginationBottom"
 					/>
 				</div>
 				<div
@@ -1055,7 +1111,7 @@ export default defineComponent({
 					</div>
 
 					<div class="d-flex mt-auto justify-content-between">
-						<form class="colForm editUser" action="/editUser" method="get">
+						<div class="colForm editUser">
 							<va-button
 								@click="showPersonEdit(person)"
 								:rounded="false"
@@ -1063,9 +1119,9 @@ export default defineComponent({
 							>
 								Edytuj
 							</va-button>
-						</form>
+						</div>
 						<!-- <va-button :rounded="false" :gradient="true" color="warning">Green text</va-button> -->
-						<div class="colForm">
+						<div class="colForm editUser">
 							<va-button
 								@click="showPersonDelete(person)"
 								class="btn btn-outline-secondary deletePerson"

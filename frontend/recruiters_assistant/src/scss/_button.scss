@@ -63,3 +63,16 @@
 		}
 	}
 }
+
+.navbarLinkGroup {
+	.nav-link {
+		@include button;
+		@include buttonOnWhite;
+		border: 0;
+		color: white !important;
+		font-size: 14px;
+		&:hover {
+			padding: 5px 5px;
+		}
+	}
+}

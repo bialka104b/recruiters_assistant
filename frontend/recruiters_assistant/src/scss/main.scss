@@ -35,12 +35,13 @@ body {
 //.nameColumnResult
 .nameColumnResult {
 	margin: 0;
+	padding-top: 50px;
 	.row {
 		margin: 0;
 	}
 	.wiersz1 {
 		.kolumna1 {
-			margin: 0 0 100px 0;
+			margin: 0 0 50px 0;
 			form,
 			.createPerson,
 			.formSearch {
@@ -120,6 +121,14 @@ body {
 						height: 50px;
 						width: 100%; //...
 					}
+					.va-checkbox__input-container {
+						padding-left: 0;
+						label {
+							overflow: hidden;
+							white-space: nowrap;
+							text-overflow: ellipsis;
+						}
+					}
 				}
 				.jezyki {
 					@include checkbox1;
@@ -183,6 +192,14 @@ body {
 					}
 					label {
 						@include labelTableCell;
+					}
+				}
+			}
+			.createPerson {
+				button {
+					width: 100%;
+					&:hover {
+						color: rgb(51, 51, 51) !important;
 					}
 				}
 			}
@@ -342,7 +359,7 @@ body {
 	}
 	.persons.green {
 		background-color: $zielony;
-		form {
+		.editUser {
 			button {
 				background: var(--gradientGreen) !important;
 				background-clip: text !important;
@@ -393,5 +410,24 @@ body {
 				color: $czerwony;
 			}
 		}
+		button {
+			color: rgb(51, 51, 51) !important;
+		}
 	}
+}
+
+@media only screen and (max-width: 770px) {
+	.englishCheck label,
+	.colDodajKandydata .createPerson button {
+		font-size: 15px !important;
+	}
+}
+@media (max-width: 1200px) {
+	label.va-checkbox__label {
+		font-size: 15px !important;
+		line-height: 27px;
+	}
+}
+label.va-checkbox__label {
+	line-height: 27px;
 }
