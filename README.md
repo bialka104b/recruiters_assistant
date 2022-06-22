@@ -100,7 +100,8 @@ If you don't have this file, ask the project author for access or configure the 
 ```bash
 STEP FIRST
 # Clone this project
-$ git clone https://github.com/bialka104b/seminarium
+# Note the dot character
+$ git clone https://github.com/bialka104b/seminarium .
 
 # Access Backed Serwer
 $ cd seminarium
