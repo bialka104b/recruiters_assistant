@@ -50,8 +50,8 @@ Application designed for IT recruiters. Functional requirements gathered after d
 
 ## :sparkles: Features ##
 
-:heavy_check_mark: Deleting a candidate
-:heavy_check_mark: Adding a candidate
+:heavy_check_mark: Deleting a candidate\
+:heavy_check_mark: Adding a candidate\
 :heavy_check_mark: Searching for candidates by:
 - technologies
 - English language skills
@@ -61,12 +61,12 @@ Application designed for IT recruiters. Functional requirements gathered after d
 - surname
 - specialization
 
-:heavy_check_mark: upload data from .csv or .json files to database
-:heavy_check_mark: Editing a candidate
-:heavy_check_mark: Adding notes from interviews
+:heavy_check_mark: upload data from .csv or .json files to database\
+:heavy_check_mark: Editing a candidate\
+:heavy_check_mark: Adding notes from interviews\
 :heavy_check_mark: Visualizing data in charts
 
-<img src="https://github.com/bialka104b/recruiters_assistant/blob/main/Screenshot_1.jpg"></img>
+<img src="https://github.com/bialka104b/recruiters_assistant/blob/main/Screenshot_1.jpg" style="height:150px;"></img>
 
 ## :rocket: Technologies ##
 
