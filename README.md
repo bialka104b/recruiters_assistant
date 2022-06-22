@@ -66,7 +66,7 @@ Application designed for IT recruiters. Functional requirements gathered after d
 :heavy_check_mark: Adding notes from interviews
 :heavy_check_mark: Visualizing data in charts
 
-<img src="https://github.com/bialka104b/recruiters_assistant/blob/main/haslo.jpg"></img>
+<img src="https://github.com/bialka104b/recruiters_assistant/blob/main/Screenshot_1.jpg"></img>
 
 ## :rocket: Technologies ##
 
@@ -90,7 +90,7 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) an
 
 Then add the password.json file in the backend folder
 
-<img src="https://github.com/bialka104b/recruiters_assistant/blob/main/Screenshot_1.jpg" style="height:100px"></img>
+<img src="https://github.com/bialka104b/recruiters_assistant/blob/main/haslo.jpg" style="height:100px"></img>
 
 If you don't have this file, ask the project author for access or configure the project for your database.
 
