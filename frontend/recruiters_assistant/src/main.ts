@@ -7,5 +7,5 @@ import 'vuestic-ui/dist/vuestic-ui.css' // <-
 const app = createApp(App)
 app.use(createVuestic()) // <-
 app.use(router);
-
+//? hhhh
 app.mount('#app')

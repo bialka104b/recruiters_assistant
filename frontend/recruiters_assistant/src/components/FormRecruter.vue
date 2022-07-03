@@ -7,6 +7,8 @@ import EditPerson from "./EditPerson.vue";
 import CreatePerson from "./CreatePerson.vue";
 import DeletePerson from "./DeletePerson.vue";
 import { Person } from "../classess/person";
+import { LevelObject } from "../classess/levelLanguages";
+import { Params } from "@/classess/defaultParamsGetAllPerson";
 
 export default defineComponent({
 	name: "FormRecruterVue",
@@ -85,41 +87,20 @@ export default defineComponent({
 			resultDisplay: [],
 
 			a: 4,
+
 			valueCurrentStartItem: 0,
 			arrayTechnologies: [],
-			englishLevel: {
-				level: "A2+",
-				objectArr: [],
-			},
-			germanLevel: {
-				level: "A1+",
-				objectArr: [],
-			},
+			englishLevel: new LevelObject("A2+",  []),
+			// englishLevel: { 	level: "A2+",	objectArr: [] },
+			germanLevel: new LevelObject("A1+",  []),
 			myLevel: [
-				{
-					level: "Clear",
-					objectArr: [],
-				},
-				{
-					level: "A2",
-					objectArr: ["A2", "B1", "B2", "C1", "C2"],
-				},
-				{
-					level: "B1",
-					objectArr: ["B1", "B2", "C1", "C2"],
-				},
-				{
-					level: "B2",
-					objectArr: ["B2", "C1", "C2"],
-				},
-				{
-					level: "C1",
-					objectArr: ["C1", "C2"],
-				},
-				{
-					level: "C2",
-					objectArr: ["C2"],
-				},
+				// {level: "Clear",	objectArr: [] },
+				new LevelObject(),
+				new LevelObject("A2",  ["A2", "B1", "B2", "C1", "C2"]),
+				new LevelObject("B1",  ["B1", "B2", "C1", "C2"]),
+				new LevelObject("B2",  ["B2", "C1", "C2"]),
+				new LevelObject("C1",  ["C1", "C2"]),
+				new LevelObject("C2",  ["C2"]),
 			],
 
 			//MODAL FULL
@@ -133,10 +114,13 @@ export default defineComponent({
 		};
 	},
 	async created() {
-		await this.getAllPerson("");
+		await this.getAllPerson();
 		setTimeout(() => {
 			this.displayPage(this.valueCurrentStartItem, this.valueCurrentStartItem + 9);
 		}, 1000);
+
+		console.log(new LevelObject("A2", ["A1", "cos"]));
+		
 	},
 	methods: {
 		closeDelete() {
@@ -159,7 +143,7 @@ export default defineComponent({
 		},
 		succes() {
 			setTimeout(() => {
-				this.getAllPerson("");
+				this.getAllPerson();
 			}, 1500);
 			setTimeout(() => {
 				this.displayPage(this.valueCurrentStartItem, this.valueCurrentStartItem + 9);
@@ -202,7 +186,7 @@ export default defineComponent({
 		deletePerson(candidate: Person) {
 			this.poscik(candidate._id);
 			this.showModalDelete = !this.showModalDelete;
-			this.getAllPerson("");
+			this.getAllPerson();
 			setTimeout(() => {
 				this.displayPage(this.valueCurrentStartItem, this.valueCurrentStartItem + 9);
 			}, 1000);
@@ -414,69 +398,129 @@ export default defineComponent({
 		handleSubmit(e: any): void {
 			alert("-- form submit --");
 		},
-		async getAllPerson(arg: any) {
-			const params = {
-				surname: this.nazwisko.trim(),
-				firstname: "",
-				locality: this.miejscowosc.trim(),
-				specjalization: this.specjalnosc.trim(),
-				arrayTechnologies: [],
+		async getAllPerson() {
+			const params = new Params(
+				this.nazwisko.trim(),
+				"",
+				this.miejscowosc.trim(),
+				this.specjalnosc.trim(),
+				[],
+				this.adobe ? "adobe" : "",
+				this.agile ? "agile" : "",
+				this.android ? "android" : "",
+				this.angular ? "angular" : "",
+				this.aws ? "aws" : "",
+				this.bash ? "bash" : "",
+				this.bootstrap ? "bootstrap" : "",
+				this.css ? "css" : "",
+				this.csharp ? "c#" : "",
+				this.cpp ? "c\/++" : "",
+				this.c ? "c" : "",
+				this.delphi ? "delphi" : "",
+				this.html ? "html" : "",
+				this.ios ? "ios" : "",
+				this.java ? "java" : "",
+				this.javascript ? "javascript" : "",
+				this.jQuery ? "jQuery" : "",
+				this.kanban ? "kanban" : "",
+				this.less ? "less" : "",
+				this.linux ? "linux" : "",
+				this.dotNet ? ".net" : "",
+				this.node ? "node" : "",
+				this.oracle ? "oracle" : "",
+				this.perl ? "perl" : "",
+				this.photoshop ? "photoshop" : "",
+				this.php ? "php" : "",
+				this.powershell ? "powershell" : "",
+				this.python ? "python" : "",
+				this.react ? "react" : "",
+				this.ruby ? "ruby" : "",
+				this.sass ? "sass" : "",
+				this.scala ? "scala" : "",
+				this.scrum ? "scrum" : "",
+				this.spring ? "spring" : "",
+				this.sql ? "sql" : "",
+				this.scss ? "scss" : "",
+				this.swift ? "swift" : "",
+				this.vue ? "vue" : "",
+				this.vb ? "vb" : "",
+				this.windows ? "windows" : "",
+				this.angielski ? "Angielski" : "",
+				this.angielskia2,
+				this.angielskib1,
+				this.angielskib2,
+				this.angielskic1,
+				this.angielskic2,
+				this.niemiecki ? "Niemiecki" : "",
+				this.niemieckia2,
+				this.niemieckib1,
+				this.niemieckib2,
+				this.niemieckic1,
+				this.niemieckic2,
+				this.pozostaleJezyki,
+			);
+			// const params = {
+			// 	surname: this.nazwisko.trim(),
+			// 	firstname: "",
+			// 	locality: this.miejscowosc.trim(),
+			// 	specjalization: this.specjalnosc.trim(),
+			// 	arrayTechnologies: [],
 
-				adobe: this.adobe ? "adobe" : "",
-				agile: this.agile ? "agile" : "",
-				android: this.android ? "android" : "",
-				angular: this.angular ? "angular" : "",
-				aws: this.aws ? "aws" : "",
-				bash: this.bash ? "bash" : "",
-				bootstrap: this.bootstrap ? "bootstrap" : "",
-				css: this.css ? "css" : "",
-				csharp: this.csharp ? "c#" : "",
-				cpp: this.cpp ? "c\/++" : "",
-				c: this.c ? "c" : "",
-				delphi: this.delphi ? "delphi" : "",
-				html: this.html ? "html" : "",
-				ios: this.ios ? "ios" : "",
-				java: this.java ? "java" : "",
-				javascript: this.javascript ? "javascript" : "",
-				jQuery: this.jQuery ? "jQuery" : "",
-				kanban: this.kanban ? "kanban" : "",
-				less: this.less ? "less" : "",
-				linux: this.linux ? "linux" : "",
-				dotNet: this.dotNet ? ".net" : "",
-				node: this.node ? "node" : "",
-				oracle: this.oracle ? "oracle" : "",
-				perl: this.perl ? "perl" : "",
-				photoshop: this.photoshop ? "photoshop" : "",
-				php: this.php ? "php" : "",
-				powershell: this.powershell ? "powershell" : "",
-				python: this.python ? "python" : "",
-				react: this.react ? "react" : "",
-				ruby: this.ruby ? "ruby" : "",
-				sass: this.sass ? "sass" : "",
-				scala: this.scala ? "scala" : "",
-				scrum: this.scrum ? "scrum" : "",
-				spring: this.spring ? "spring" : "",
-				sql: this.sql ? "sql" : "",
-				scss: this.scss ? "scss" : "",
-				swift: this.swift ? "swift" : "",
-				vue: this.vue ? "vue" : "",
-				vb: this.vb ? "vb" : "",
-				windows: this.windows ? "windows" : "",
+			// 	adobe: this.adobe ? "adobe" : "",
+			// 	agile: this.agile ? "agile" : "",
+			// 	android: this.android ? "android" : "",
+			// 	angular: this.angular ? "angular" : "",
+			// 	aws: this.aws ? "aws" : "",
+			// 	bash: this.bash ? "bash" : "",
+			// 	bootstrap: this.bootstrap ? "bootstrap" : "",
+			// 	css: this.css ? "css" : "",
+			// 	csharp: this.csharp ? "c#" : "",
+			// 	cpp: this.cpp ? "c\/++" : "",
+			// 	c: this.c ? "c" : "",
+			// 	delphi: this.delphi ? "delphi" : "",
+			// 	html: this.html ? "html" : "",
+			// 	ios: this.ios ? "ios" : "",
+			// 	java: this.java ? "java" : "",
+			// 	javascript: this.javascript ? "javascript" : "",
+			// 	jQuery: this.jQuery ? "jQuery" : "",
+			// 	kanban: this.kanban ? "kanban" : "",
+			// 	less: this.less ? "less" : "",
+			// 	linux: this.linux ? "linux" : "",
+			// 	dotNet: this.dotNet ? ".net" : "",
+			// 	node: this.node ? "node" : "",
+			// 	oracle: this.oracle ? "oracle" : "",
+			// 	perl: this.perl ? "perl" : "",
+			// 	photoshop: this.photoshop ? "photoshop" : "",
+			// 	php: this.php ? "php" : "",
+			// 	powershell: this.powershell ? "powershell" : "",
+			// 	python: this.python ? "python" : "",
+			// 	react: this.react ? "react" : "",
+			// 	ruby: this.ruby ? "ruby" : "",
+			// 	sass: this.sass ? "sass" : "",
+			// 	scala: this.scala ? "scala" : "",
+			// 	scrum: this.scrum ? "scrum" : "",
+			// 	spring: this.spring ? "spring" : "",
+			// 	sql: this.sql ? "sql" : "",
+			// 	scss: this.scss ? "scss" : "",
+			// 	swift: this.swift ? "swift" : "",
+			// 	vue: this.vue ? "vue" : "",
+			// 	vb: this.vb ? "vb" : "",
+			// 	windows: this.windows ? "windows" : "",
 
-				angielski: this.angielski ? "Angielski" : "",
-				angielskia2: this.angielskia2,
-				angielskib1: this.angielskib1,
-				angielskib2: this.angielskib2,
-				angielskic1: this.angielskic1,
-				angielskic2: this.angielskic2,
-				niemiecki: this.niemiecki ? "Niemiecki" : "",
-				niemieckia2: this.niemieckia2,
-				niemieckib1: this.niemieckib1,
-				niemieckib2: this.niemieckib2,
-				niemieckic1: this.niemieckic1,
-				niemieckic2: this.niemieckic2,
-				pozostaleJezyki: this.pozostaleJezyki,
-			};
+			// 	angielski: this.angielski ? "Angielski" : "",
+			// 	angielskia2: this.angielskia2,
+			// 	angielskib1: this.angielskib1,
+			// 	angielskib2: this.angielskib2,
+			// 	angielskic1: this.angielskic1,
+			// 	angielskic2: this.angielskic2,
+			// 	niemiecki: this.niemiecki ? "Niemiecki" : "",
+			// 	niemieckia2: this.niemieckia2,
+			// 	niemieckib1: this.niemieckib1,
+			// 	niemieckib2: this.niemieckib2,
+			// 	niemieckic1: this.niemieckic1,
+			// 	niemieckic2: this.niemieckic2,
+			// 	pozostaleJezyki: this.pozostaleJezyki,
+			// };
 			console.log(params, "params");
 
 			await Axios.get(`http://localhost:8080/kandydaci`, { params })
@@ -953,13 +997,8 @@ export default defineComponent({
 									</div>
 								</div>
 							</div>
-
-							<!-- <va-button type="submit" class="mt-2" @click="getAllPerson('')">
-								Pobierz
-							</va-button> -->
 						</div>
 					</div>
-					<!-- <form class="row" action="/wyslijimie" method="get"></form> -->
 				</div>
 				<div class="col-12 col-md-3 colDodajKandydata mt-2">
 					<div class="createPerson">
@@ -979,7 +1018,7 @@ export default defineComponent({
 							<va-button @click="createMany()">Zapisz dane</va-button>
 						</div>
 						<div class="zapisz">
-							<va-button type="submit" class="mt-2" @click="getAllPerson('')">
+							<va-button type="submit" class="mt-2" @click="getAllPerson()">
 								Pobierz dane
 							</va-button>
 						</div>

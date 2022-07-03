@@ -1,9 +1,11 @@
 <template>
 	<header></header>
 	<Header />
+	<!-- <HelloWorld /> -->
 	<main class="pt-5">
 		<router-view />
 	</main>
+	<Test msg="You did it!" />
 </template>
 
 <script lang="ts">
@@ -11,6 +13,8 @@ import { defineComponent } from "vue";
 import Axios from "axios";
 import FormRecruterVue from "./components/FormRecruter.vue";
 import Header from "./components/Header.vue";
+// import HelloWorld from "./components/GGG.vue";
+import Test from "./components/Test.vue";
 export default defineComponent({
 	data() {
 		return {
@@ -20,6 +24,8 @@ export default defineComponent({
 	components: {
 		Header,
 		FormRecruterVue,
+		Test
+		// HelloWorld() { }
 	},
 	created() {},
 	methods: {},

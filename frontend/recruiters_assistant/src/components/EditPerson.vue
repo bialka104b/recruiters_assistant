@@ -11,7 +11,7 @@
 		>
 			<template #header v-if="person">
 				<div class="col-12 col-md-12">
-					<h3>Edytuj kandydata: {{ candidate.Imie }} {{ candidate.Nazwisko }}</h3>
+					<h3 id="surname">Edytuj kandydata: {{ candidate.Imie }} {{ candidate.Nazwisko }}</h3>
 				</div>
 			</template>
 			<template #default v-if="person">
@@ -27,7 +27,7 @@
 					</div>
 					<div class="opakowanie col-md-6">
 						<va-input
-							class="mt-2 wrapperInput"
+							class="mt-2 wrapperInput Nazwisko"
 							v-model="candidate.Nazwisko"
 							label="Nazwisko:"
 							input-class="inputClass"

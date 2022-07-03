@@ -6,7 +6,8 @@
 		"build": "run-p type-check build-only",
 		"preview": "vite preview --port 4173",
 		"build-only": "vite build",
-		"type-check": "vue-tsc --noEmit"
+		"test-unit": "vitest --environment jsdom",
+		"type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
 	},
 	"dependencies": {
 		"@types/chart.js": "^2.9.37",
@@ -34,6 +35,11 @@
 		"npm-run-all": "^4.1.5",
 		"typescript": "~4.7.2",
 		"vite": "^2.9.9",
-		"vue-tsc": "^0.35.2"
+		"vue-tsc": "^0.35.2",
+
+		"@types/jsdom": "^16.2.14",
+		"@vue/test-utils": "^2.0.0",
+		"jsdom": "^20.0.0",
+		"vitest": "^0.15.1"
 	}
 }

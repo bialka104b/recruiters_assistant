@@ -8,8 +8,8 @@
 				</h2>
 			</template>
 			<template #footer>
-				<va-button class="mx-1" @click="deletePerson(candidate)">Usuń</va-button>
-				<va-button class="mx-1" @click="cancel()">Cancel</va-button>
+				<va-button class="mx-1 delete" @click="deletePerson(candidate)">Usuń</va-button>
+				<va-button class="mx-1 cancel" @click="cancel()">Cancel</va-button>
 			</template>
 		</va-modal>
 	</div>

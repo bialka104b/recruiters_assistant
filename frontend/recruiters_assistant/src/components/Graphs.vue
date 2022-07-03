@@ -522,7 +522,6 @@ export default defineComponent({
 		sprawdzAngielski(result: []) {
 			result.forEach((lvlEnglish: any, index: number) => {
 				const text = lvlEnglish.Angielski.toLowerCase().trim();
-				// console.log(lvlGerman.Niemiecki);
 				if (text == "angielski" || text == "angielski a1") {
 					this.englishArr[0] = this.englishArr[0] + 1;
 					this.englishArr2[0] = this.englishArr2[0] + 1;
