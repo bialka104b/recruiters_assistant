@@ -10,4 +10,5 @@ describe("Header", () => {
         // console.log("Header", Header);
         
 	});
+	it("processes valid props data", async () => {});
 });

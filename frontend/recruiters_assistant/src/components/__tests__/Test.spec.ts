@@ -7,7 +7,7 @@ describe("Test", () => {
 	it("renders properly", () => {
 		const wrapper = mount(Test, { props: { msg: "Hello Vitest" } });
 		expect(wrapper.text()).toContain("Hello Vitest");
-		console.log("CreatePerson", Test);
 		
 	});
+	it("processes valid props data", async () => {});
 });

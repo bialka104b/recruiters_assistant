@@ -9,4 +9,5 @@ describe("Graphs", () => {
         // expect(wrapper.text()).toContain("Hello Vitest");
         // console.log("Graphs", Graphs);
 	});
+	it("processes valid props data", async () => {});
 });

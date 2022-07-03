@@ -9,4 +9,5 @@ describe("FormRecruter", () => {
         // expect(wrapper.text()).toContain("Hello Vitest");
         // console.log("FormRecruter", FormRecruter);
 	});
+	it("processes valid props data", async () => {});
 });

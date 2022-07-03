@@ -4,9 +4,11 @@ import { mount } from "@vue/test-utils";
 import CreatePerson from "../CreatePerson.vue";
 
 describe("CreatePerson", () => {
-    it("renders properly", () => {
+	it("renders properly", () => {
 		// const wrapper = mount(CreatePerson, { });
-        // expect(wrapper.text()).toContain("Hello Vitest");
-        // console.log("CreatePerson", CreatePerson);
+		// expect(wrapper.text()).toContain("Hello Vitest");
+		// console.log("CreatePerson", CreatePerson);
 	});
+
+	it("processes valid props data", async () => {});
 });
