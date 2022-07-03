@@ -1,7 +1,4 @@
-import {
-	defineComponent, h, type DefineComponent,
-	// type PropType
-} from 'vue'
+import { defineComponent, h, type DefineComponent, type PropType } from "vue";
 
 import { Doughnut } from 'vue-chartjs'
 import {
@@ -11,8 +8,9 @@ import {
   Legend,
   ArcElement,
   CategoryScale,
-//   type Plugin
+  type Plugin
 } from 'chart.js'
+import { OptionsDonut } from "../classess/optionsDoughnutChart";
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale)
 // import * as chartJs from 'chart.js'
@@ -51,7 +49,7 @@ export default defineComponent({
 			default: () => {}
 		},
 		plugins: {
-			type: Array,
+			type: Array as PropType<Plugin<"doughnut">[]>,
 			default: () => []
 		}
   	},
@@ -65,11 +63,12 @@ export default defineComponent({
 		//     }
 		//   ]
 		// }
+		const chartOptions = new OptionsDonut();
 
-		const chartOptions = {
-		responsive: true,
-		maintainAspectRatio: false
-		}
+		// const chartOptions = {
+		// responsive: true,
+		// maintainAspectRatio: false
+		// }
 
 		const chartData = props.chartData;
 		// const chartOptions = props.chartOptions;

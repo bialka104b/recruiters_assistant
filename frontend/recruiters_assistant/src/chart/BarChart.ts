@@ -14,6 +14,7 @@ import {
 } from "chart.js";
 import { Options } from "@/classess/optionsBarChart";
 
+
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
 
 export default defineComponent({
