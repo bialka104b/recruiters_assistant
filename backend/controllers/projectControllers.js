@@ -260,7 +260,6 @@ const kandydaci_update = (req, res) => {
 	Kandydaci.updateOne({ _id: mongo.ObjectId(id) }, { $set: req.body })
 		.then((result) => {
 			res.status(200 || 204).send(result);
-			console.log(result);
 		})
 		.catch((err) => {
 			res.status(400).send(err);

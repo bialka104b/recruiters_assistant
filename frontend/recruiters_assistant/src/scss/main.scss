@@ -431,3 +431,53 @@ body {
 label.va-checkbox__label {
 	line-height: 27px;
 }
+
+html.dark {
+	#app {
+		background: rgba(12, 12, 12, 0);
+	}
+}
+html.light {
+	#app {
+		background: rgba(12, 12, 12, 0.8);
+	}
+	// .kolumna1 {
+	// 	background: white;
+	// }
+	body,
+	.nameColumnResult .wiersz1 .kolumna1 form .technologie, 
+	.nameColumnResult .wiersz1 .kolumna1 .createPerson .technologie, 
+	.nameColumnResult .wiersz1 .kolumna1 .formSearch .technologie
+	// .resultPersons .persons.white 
+	{
+		color: $bialy;
+	}
+	.resultPersons .persons.white {
+		background: $bialy;
+	}
+}
+.theme {
+	position: fixed;
+	z-index: 2000;
+	right: 24px;
+	top: 20px;
+	height: 33px;
+	button {
+		@include buttonOnWhite;
+		&:hover {
+			color: white;
+			border: 0;
+			border-image-slice:0;
+			background: var(--gradient) !important;
+			background-clip: none !important;
+			-webkit-background-clip: none !important;
+			border-image-source: none !important;
+			text-decoration: none;
+		}
+		height: 33px;
+		width: 33px;
+		span {
+			display: block;
+		}
+	}
+}

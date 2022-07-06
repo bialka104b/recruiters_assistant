@@ -1,5 +1,14 @@
 <template v-if="showModalCreate">
 	<div>
+		<!-- this code is for unit testing  -->
+		<!-- <button class="mx-1" @click="createPerson(candidate)">Zapisz</button>
+		<button class="mx-1" @click="cancel()">Cancel</button>
+		<input
+			class="mt-2 wrapperInput"
+			v-model="candidate.Imie"
+			label="Imię:"
+			input-class="inputClass"
+		/> -->
 		<va-modal
 			v-model="showModalCreate"
 			:no-dismiss="true"
@@ -179,8 +188,8 @@
 				</va-form>
 			</template>
 			<template #footer>
-				<va-button class="mx-1" @click="createPerson(candidate)">Zapisz</va-button>
-				<va-button class="mx-1" @click="cancel()">Cancel</va-button>
+				<va-button class="mx-1 create" @click="createPerson(candidate)">Zapisz</va-button>
+				<va-button class="mx-1 cancel" @click="cancel()">Cancel</va-button>
 			</template>
 		</va-modal>
 	</div>

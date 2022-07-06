@@ -1,0 +1,85 @@
+// Vitest Snapshot v1
+
+exports[`CreatePerson > renders properly 1`] = `
+"<div person=\\"[object Object]\\" showmodaldelete=\\"true\\">
+  <!-- this code is for unit testing  --><button class=\\"mx-1\\">Zapisz</button><button class=\\"mx-1\\">Cancel</button><input class=\\"mt-2 wrapperInput\\" label=\\"Imię:\\" input-class=\\"inputClass\\">
+  <va-modal-stub modelvalue=\\"false\\" no-dismiss=\\"true\\" hide-default-actions=\\"true\\" fullscreen=\\"\\" fixed-layout=\\"true\\"></va-modal-stub>
+</div>"
+`;
+
+exports[`CreatePerson 1`] = `
+"<div person=\\"[object Object]\\" showmodaldelete=\\"true\\">
+  <!-- this code is for unit testing  --><button class=\\"mx-1\\">Zapisz</button><button class=\\"mx-1\\">Cancel</button><input class=\\"mt-2 wrapperInput\\" label=\\"Imię:\\" input-class=\\"inputClass\\">
+  <div modelvalue=\\"false\\" no-dismiss=\\"true\\" hide-default-actions=\\"true\\" fullscreen=\\"\\" fixed-layout=\\"true\\"></div>
+</div>"
+`;
+
+exports[`mount component 1`] = `
+"<div value=\\"test\\">
+  <!-- this code is for unit testing  --><button class=\\"mx-1\\">Zapisz</button><button class=\\"mx-1\\">Cancel</button><input class=\\"mt-2 wrapperInput\\" label=\\"Imię:\\" input-class=\\"inputClass\\">
+  <va-modal modelvalue=\\"false\\" no-dismiss=\\"true\\" hide-default-actions=\\"true\\" fullscreen=\\"\\" fixed-layout=\\"true\\">
+    <va-form class=\\"row\\" tag=\\"form\\">
+      <div class=\\"opakowanie col-md-6\\">
+        <va-input-stub class=\\"mt-2 wrapperInput\\" modelvalue=\\"\\" label=\\"Imię:\\" input-class=\\"inputClass\\"></va-input-stub>
+      </div>
+      <div class=\\"opakowanie col-md-6\\">
+        <va-input-stub class=\\"mt-2 wrapperInput\\" modelvalue=\\"\\" label=\\"Nazwisko:\\" input-class=\\"inputClass\\"></va-input-stub>
+      </div>
+      <div class=\\"opakowanie col-md-6\\">
+        <va-input-stub class=\\"mt-2 wrapperInput\\" modelvalue=\\"\\" label=\\"Email:\\" input-class=\\"inputClass\\"></va-input-stub>
+      </div>
+      <div class=\\"opakowanie col-md-6\\">
+        <va-input-stub class=\\"mt-2 wrapperInput\\" modelvalue=\\"\\" label=\\"Telefon:\\" input-class=\\"inputClass\\"></va-input-stub>
+      </div>
+      <div class=\\"opakowanie col-md-6\\">
+        <va-input-stub class=\\"mt-2 wrapperInput\\" modelvalue=\\"\\" label=\\"Miejscowosc:\\" input-class=\\"inputClass\\"></va-input-stub>
+      </div>
+      <div class=\\"opakowanie col-md-6\\">
+        <va-input-stub class=\\"mt-2 wrapperInput\\" modelvalue=\\"\\" label=\\"Angielski:\\" input-class=\\"inputClass\\"></va-input-stub>
+      </div>
+      <div class=\\"opakowanie col-md-6\\">
+        <va-input-stub class=\\"mt-2 wrapperInput\\" modelvalue=\\"\\" label=\\"Niemiecki:\\" input-class=\\"inputClass\\"></va-input-stub>
+      </div>
+      <div class=\\"opakowanie col-md-6\\">
+        <va-input-stub class=\\"mt-2 wrapperInput\\" modelvalue=\\"\\" label=\\"Inny język:\\" input-class=\\"inputClass\\"></va-input-stub>
+      </div>
+      <div class=\\"opakowanie col-md-6\\">
+        <va-input-stub class=\\"mt-2 wrapperInput\\" modelvalue=\\"\\" label=\\"Wiek:\\" input-class=\\"inputClass\\"></va-input-stub>
+      </div>
+      <div class=\\"opakowanie col-md-6\\">
+        <va-input-stub class=\\"mt-2 wrapperInput\\" modelvalue=\\"\\" label=\\"Relokacja:\\" input-class=\\"inputClass\\"></va-input-stub>
+      </div>
+      <div class=\\"opakowanie col-md-6\\">
+        <va-input-stub class=\\"mt-2 wrapperInput\\" modelvalue=\\"\\" label=\\"Doswiadczenie:\\" input-class=\\"inputClass\\"></va-input-stub>
+      </div>
+      <div class=\\"opakowanie col-md-6\\">
+        <va-input-stub class=\\"mt-2 wrapperInput\\" modelvalue=\\"\\" label=\\"Wymagania Finansowe:\\" input-class=\\"inputClass\\"></va-input-stub>
+      </div>
+      <div class=\\"opakowanie col-md-6\\">
+        <va-date-input class=\\"mt-2 wrapperInput\\" modelvalue=\\"\\" label=\\"Data kontaktu\\"></va-date-input>
+      </div>
+      <div class=\\"opakowanie col-md-6\\">
+        <va-input-stub class=\\"mt-2 wrapperInput\\" modelvalue=\\"\\" label=\\"Link do profilu:\\" input-class=\\"inputClass\\"></va-input-stub>
+      </div>
+      <div class=\\"opakowanie col-md-12\\">
+        <va-input-stub class=\\"mt-2 wrapperInput\\" modelvalue=\\"\\" label=\\"Technologie:\\" input-class=\\"inputClass\\"></va-input-stub>
+      </div>
+      <div class=\\"opakowanie col-md-12\\">
+        <va-input-stub class=\\"mt-2 wrapperInput\\" modelvalue=\\"\\" label=\\"Specjalnosc:\\" input-class=\\"inputClass\\"></va-input-stub>
+      </div>
+      <div class=\\"opakowanie col-md-12\\">
+        <va-input-stub class=\\"mt-2 wrapperInput\\" modelvalue=\\"\\" label=\\"Współpraca z firmami:\\" input-class=\\"inputClass\\"></va-input-stub>
+      </div>
+      <div class=\\"opakowanie col-md-12\\">
+        <va-input-stub class=\\"mt-2 wrapperInput textArea\\" modelvalue=\\"\\" label=\\"Komentarze:\\" input-class=\\"inputClass\\" type=\\"textarea\\" autosize=\\"\\"></va-input-stub>
+      </div>
+      <div class=\\"opakowanie col-md-6\\">
+        <va-input-stub class=\\"mt-2 wrapperInput\\" modelvalue=\\"\\" label=\\"Rozmowa techniczna:\\" input-class=\\"inputClass\\"></va-input-stub>
+      </div>
+      <div class=\\"opakowanie col-md-6\\">
+        <va-input-stub class=\\"mt-2 wrapperInput\\" modelvalue=\\"\\" label=\\"Rozmowa nietechniczna:\\" input-class=\\"inputClass\\"></va-input-stub>
+      </div>
+    </va-form>
+  </va-modal>
+</div>"
+`;

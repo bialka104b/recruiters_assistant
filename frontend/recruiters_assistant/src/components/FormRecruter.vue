@@ -118,9 +118,6 @@ export default defineComponent({
 		setTimeout(() => {
 			this.displayPage(this.valueCurrentStartItem, this.valueCurrentStartItem + 9);
 		}, 1000);
-
-		console.log(new LevelObject("A2", ["A1", "cos"]));
-		
 	},
 	methods: {
 		closeDelete() {
@@ -521,12 +518,10 @@ export default defineComponent({
 			// 	niemieckic2: this.niemieckic2,
 			// 	pozostaleJezyki: this.pozostaleJezyki,
 			// };
-			console.log(params, "params");
 
 			await Axios.get(`http://localhost:8080/kandydaci`, { params })
 				.then((res) => {
 					this.result = res.data;
-					console.log(res.data, "res.data");
 
 					this.displayPage(this.valueCurrentStartItem, this.valueCurrentStartItem + 9);
 				})

@@ -1,13 +1,34 @@
 import { describe, it, expect } from "vitest";
 
-import { mount } from "@vue/test-utils";
+import { mount, shallowMount } from "@vue/test-utils";
 import Graphs from "../Header.vue";
 
 describe("Graphs", () => {
-	it("renders properly", () => {
-		// const wrapper = mount(Graphs, { });
-        // expect(wrapper.text()).toContain("Hello Vitest");
-        // console.log("Graphs", Graphs);
+	const wrapper = shallowMount(Graphs, {
+		global: {
+			stubs: {
+				"va-modal": {
+					template: "<div></div>",
+				},
+				"Header": {
+					template: "<div></div>",
+				},
+				"router-link": {
+					template: "<div></div>",
+				},
+			},
+		},
 	});
-	it("processes valid props data", async () => {});
+
+	it("processes valid props data", () => {
+		setTimeout(async () => {
+			await expect(wrapper.find("DoughnutChart").exists()).toBe(true);
+		}, 100);
+	});
+	
+	it("processes valid props data", () => {
+		setTimeout(async () => {
+			await expect(wrapper.find("BarChart").exists()).toBe(true);
+		}, 100);
+	});
 });

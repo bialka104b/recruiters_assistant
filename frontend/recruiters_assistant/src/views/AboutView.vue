@@ -35,10 +35,9 @@
 
 <style lang="scss">
 .about {
-	/* min-height: 100vh; */
-	/* display: flex; */
 	align-items: center;
-	margin: 50px;
+	margin: 50px 50px 0 50px;
+	min-height: 88vh;
 }
 .fotoContainer {
 	height: 200px;

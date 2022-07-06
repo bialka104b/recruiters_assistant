@@ -4,11 +4,17 @@ import { mount } from "@vue/test-utils";
 import Header from "../Header.vue";
 
 describe("Header", () => {
+
+	const wrapper = mount(Header, { });
 	it("renders properly", () => {
-		// const wrapper = mount(Header, { });
-        // expect(wrapper.text()).toContain("Hello Vitest");
-        // console.log("Header", Header);
-        
+        expect(wrapper.text()).toContain("Start");
 	});
-	it("processes valid props data", async () => {});
+
+	it("processes valid props data", async () => {
+		expect(wrapper.text()).toContain("Wykresy");
+	});
+
+	it("processes valid props data", async () => {
+		expect(wrapper.text()).toContain("O Nas");
+	});
 });

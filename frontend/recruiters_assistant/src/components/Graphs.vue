@@ -570,9 +570,7 @@ export default defineComponent({
 					this.germanArr2[5] = this.germanArr2[5] + 1;
 				} else if (text === "" || text === null || text == "-") {
 					this.germanArr[6] = this.germanArr[6] + 1;
-				} else {
-					// console.log(text, index);
-				}
+				} else {}
 			});
 		},
 		async getAllPerson() {
