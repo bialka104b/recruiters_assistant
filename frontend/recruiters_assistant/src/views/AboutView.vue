@@ -5,7 +5,7 @@
 			<p class="mb-3">Marta Jamróz Kulig</p>
 			<div class="fotoContainer m-auto">
 				<img
-					src="https://media-exp1.licdn.com/dms/image/C4E03AQHXcwNIAj38Ow/profile-displayphoto-shrink_400_400/0/1625325793517?e=1657152000&v=beta&t=xR83f-YN0c0S5Gs_PiI_6FNwzIAZjwtndAbKOvameTI"
+					src="/src/assets/images/1625325793517.jfif"
 					class="foto d-block"
 				/>
 			</div>
