@@ -9,3 +9,6 @@ app.use(createVuestic()) // <-
 app.use(router);
 //? hhhh
 app.mount('#app')
+
+//poniżej wprowadzono zmiany
+console.log("nowe zmiany");
