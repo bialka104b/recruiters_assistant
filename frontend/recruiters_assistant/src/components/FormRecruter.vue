@@ -118,8 +118,34 @@ export default defineComponent({
 		setTimeout(() => {
 			this.displayPage(this.valueCurrentStartItem, this.valueCurrentStartItem + 9);
 		}, 1000);
+
+		await this.ggg();
 	},
+	
 	methods: {
+		async ggg() { 
+			const config = {
+				method: "post",
+				url: `https://panel.lugomat.pl/api/external/session`,
+				headers: {
+					"Content-Type": "application/json",
+				},
+				data: {
+					user: {
+						email: "tomasz.barylski@atal.pl",
+						password: "password"
+					}
+				},
+			};
+			await Axios(config)
+				.then((res) => {
+					console.log(res, "res udało sie create");
+				})
+				.catch((err) => {
+					console.log(err, "error mmmmmmm create");
+				});
+		
+		},
 		closeDelete() {
 			this.showModalDelete = false;
 		},
@@ -357,9 +383,9 @@ export default defineComponent({
 				this.niemieckic2 = "C2";
 			}
 			if (arg.objectArr.length == 2) {
-				this.niemieckia2 = "C";
-				this.niemieckib1 = "C";
-				this.niemieckib2 = "C";
+				this.niemieckia2 = "C1";
+				this.niemieckib1 = "C1";
+				this.niemieckib2 = "C1";
 				this.niemieckic1 = "C1";
 				this.niemieckic2 = "C2";
 			}
@@ -522,6 +548,7 @@ export default defineComponent({
 			await Axios.get(`http://localhost:8080/kandydaci`, { params })
 				.then((res) => {
 					this.result = res.data;
+					console.log(res.data)
 
 					this.displayPage(this.valueCurrentStartItem, this.valueCurrentStartItem + 9);
 				})
@@ -1128,7 +1155,7 @@ export default defineComponent({
 						</div>
 						<div class="info mb-1 d-flex justify-content-between">
 							OSTATNI KONTAKT:
-							<p>{{ person["Data_kontaktu"] }}</p>
+							<p v-if="person['Data_kontaktu'] != '' ">{{ new Date(person["Data_kontaktu"]).toLocaleDateString('pl-PL') }}</p>
 						</div>
 						<div class="info mb-1 d-flex justify-content-between">
 							STATUS:
@@ -1205,6 +1232,7 @@ export default defineComponent({
 		<EditPerson
 			:person="candidate"
 			:showModalEdit="showModalEdit"
+			:dateLastContactExist="candidate['Data_kontaktu'] != ''"
 			@closeEditModal="closeEdit()"
 			@successEdit="successEdit()"
 		>

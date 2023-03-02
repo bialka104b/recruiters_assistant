@@ -43,7 +43,7 @@ const ProjectSchema = new Schema(
 	},
 	{
 		timestamps: true,
-		collection: "projects", //tu można podawac nazwe kolekcji z której chcemy pobrać dane
+		collection: "kandydaci", //tu można podawac nazwe kolekcji z której chcemy pobrać dane
 	},
 );
 

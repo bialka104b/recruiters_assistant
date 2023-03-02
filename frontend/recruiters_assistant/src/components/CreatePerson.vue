@@ -30,6 +30,7 @@
 							v-model="candidate.Imie"
 							label="Imię:"
 							input-class="inputClass"
+							:required-mark="true"
 						/>
 					</div>
 					<div class="opakowanie col-md-6">
@@ -38,6 +39,7 @@
 							v-model="candidate.Nazwisko"
 							label="Nazwisko:"
 							input-class="inputClass"
+							:required-mark="true"
 						/>
 					</div>
 					<div class="opakowanie col-md-6">
@@ -125,6 +127,10 @@
 							class="mt-2 wrapperInput"
 							v-model="candidate.Data_kontaktu"
 							label="Data kontaktu"
+							:highlight-weekend="true"
+							:allowed-days="(date: Date) => calcAllowDays(date)"
+							:allowed-months="(date: Date) => calcAllowDays(date)"
+							:allowed-years="(date: Date) => calcAllowDays(date)"
 						/>
 					</div>
 					<div class="opakowanie col-md-6">
@@ -188,7 +194,12 @@
 				</va-form>
 			</template>
 			<template #footer>
-				<va-button class="mx-1 create" @click="createPerson(candidate)">Zapisz</va-button>
+				<va-button
+					class="mx-1 create"
+					@click="createPerson(candidate)"
+					:disabled="candidate.Imie && candidate.Nazwisko ? false : true"
+					>Zapisz</va-button
+				>
 				<va-button class="mx-1 cancel" @click="cancel()">Cancel</va-button>
 			</template>
 		</va-modal>
@@ -209,11 +220,27 @@ export default defineComponent({
 	data() {
 		return {
 			candidate: new NewPerson(),
+			allowDays: false,
 		};
 	},
-	created() {},
+	created() {
+		this.candidate.Data_kontaktu = new Date().toString()
+	},
 	methods: {
+		calcAllowDays(date: Date) {
+
+			if (date.getFullYear() > new Date().getFullYear()) {
+				return false
+			} else if (date.getFullYear() == new Date().getFullYear() && date.getMonth() > new Date().getMonth()) {
+				return false
+			} else if (date.getFullYear() == new Date().getFullYear() && date.getDate() > new Date().getDate()) {
+				return false
+			} else {
+				return true
+			}
+		},
 		createPerson(candidate: NewPerson) {
+			candidate.Data_kontaktu = new Date(candidate.Data_kontaktu).toLocaleDateString("pl-PL");
 			this.create(candidate);
 			this.$emit("closeCreateModal", this.showModalCreate);
 			this.$emit("successCreate", this.showModalCreate);

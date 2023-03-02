@@ -11,7 +11,9 @@
 		>
 			<template #header v-if="person">
 				<div class="col-12 col-md-12">
-					<h3 id="surname">Edytuj kandydata: {{ candidate.Imie }} {{ candidate.Nazwisko }}</h3>
+					<h3 id="surname">
+						Edytuj kandydata: {{ candidate.Imie }} {{ candidate.Nazwisko }}
+					</h3>
 				</div>
 			</template>
 			<template #default v-if="person">
@@ -120,10 +122,15 @@
 							label="Data kontaktu:"
 							input-class="inputClass"
 						/> -->
+						{{ candidate.Data_kontaktu }}
 						<va-date-input
 							class="mt-2 wrapperInput"
 							v-model="candidate.Data_kontaktu"
 							label="Data kontaktu"
+							:highlight-weekend="true"
+							:allowed-days="(date: Date) => calcAllowDays(date)"
+							:allowed-months="(date: Date) => calcAllowDays(date)"
+							:allowed-years="(date: Date) => calcAllowDays(date)"
 						/>
 					</div>
 					<div class="opakowanie col-md-6">
@@ -214,14 +221,34 @@ export default defineComponent({
 	props: {
 		person: Person,
 		showModalEdit: Boolean,
+		dateLastContactExist: Boolean,
 	},
 	data() {
 		return {
 			candidate: new Person(),
 		};
 	},
-	created() {},
+	created() {
+		console.log(this.candidate);
+	},
 	methods: {
+		calcAllowDays(date: Date) {
+			if (date.getFullYear() > new Date().getFullYear()) {
+				return false;
+			} else if (
+				date.getFullYear() == new Date().getFullYear() &&
+				date.getMonth() > new Date().getMonth()
+			) {
+				return false;
+			} else if (
+				date.getFullYear() == new Date().getFullYear() &&
+				date.getDate() > new Date().getDate()
+			) {
+				return false;
+			} else {
+				return true;
+			}
+		},
 		run() {
 			if (this.person) {
 				this.candidate._id = this.person._id;
@@ -248,7 +275,15 @@ export default defineComponent({
 				this.candidate.Wiek = this.person.Wiek;
 			}
 		},
+		formatDate(date: Date) {
+			console.log(
+				date,
+				"fff",
+				`${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`,
+			);
 
+			return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+		},
 		editPerson(candidate: Person) {
 			this.put(candidate);
 			this.$emit("closeEditModal", this.showModalEdit);

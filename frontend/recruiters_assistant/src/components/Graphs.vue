@@ -363,8 +363,10 @@ export default defineComponent({
 			(<Array<string>>this.labelsAgeArr) = key;
 			(<Array<number>>this.ageArrData) = value;
 			(<string>this.labelsAgeArr[0]) = "nie podano";
-			(<string>this.labelsAgeArr[this.labelsAgeArr.length - 1]) = "nie podano";
+			if (this.labelsAgeArr[this.labelsAgeArr.length - 1] == "NaN") { 
 
+				(<string>this.labelsAgeArr[this.labelsAgeArr.length - 1]) = "60";
+			}
 			this.ageChartData = this.returnChartDataAge();
 		},
 		sprawdzInneNarzedzia(result: []) {
